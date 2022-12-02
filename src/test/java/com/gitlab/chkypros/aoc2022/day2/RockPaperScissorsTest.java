@@ -1,6 +1,5 @@
-package com.gitlab.chkypros.aoc.day2;
+package com.gitlab.chkypros.aoc2022.day2;
 
-import com.gitlab.chkypros.aoc.day2.RockPaperScissors;
 import com.gitlab.chkypros.aoc_template.AbstractSolutionTest;
 
 import org.junit.Before;

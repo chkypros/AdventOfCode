@@ -1,6 +1,5 @@
-package com.gitlab.chkypros.aoc.day1;
+package com.gitlab.chkypros.aoc2022.day1;
 
-import com.gitlab.chkypros.aoc.day1.CalorieCounting;
 import com.gitlab.chkypros.aoc_template.AbstractSolutionTest;
 import org.junit.Before;
 import org.junit.Test;

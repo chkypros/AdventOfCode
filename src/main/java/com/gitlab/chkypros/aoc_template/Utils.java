@@ -17,9 +17,13 @@ public class Utils {
 
     public static Path getInputFilePath(Object object, String label) throws URISyntaxException {
         final String packageName = object.getClass().getPackage().getName();
-        final String day = packageName.substring(packageName.lastIndexOf(".") + 1);
+        final int lastIndexOfPeriod = packageName.lastIndexOf(".");
+        final int secondToLastIndexOfPeriod = packageName.lastIndexOf(".", lastIndexOfPeriod - 1);
 
-        final String resource = day + "/aoc-" + day + label + "-input.txt";
+        final String day = packageName.substring(lastIndexOfPeriod + 1);
+        final String event = packageName.substring(secondToLastIndexOfPeriod + 1, lastIndexOfPeriod);
+
+        final String resource = event + "/" + day + "/aoc-" + day + label + "-input.txt";
         return Paths.get(ClassLoader.getSystemResource(resource).toURI());
     }
 
