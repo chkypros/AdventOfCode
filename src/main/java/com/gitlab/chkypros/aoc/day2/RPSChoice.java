@@ -1,4 +1,4 @@
-package com.gitlab.chkypros.aoc_template.day2;
+package com.gitlab.chkypros.aoc.day2;
 
 import java.util.Arrays;
 

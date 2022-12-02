@@ -1,5 +1,6 @@
-package com.gitlab.chkypros.aoc_template.day2;
+package com.gitlab.chkypros.aoc.day2;
 
+import com.gitlab.chkypros.aoc.day2.RockPaperScissors;
 import com.gitlab.chkypros.aoc_template.AbstractSolutionTest;
 
 import org.junit.Before;
@@ -8,7 +9,6 @@ import org.junit.Test;
 import java.util.stream.Stream;
 
 import static com.gitlab.chkypros.aoc_template.TestUtils.checkAnswer;
-import static org.junit.Assert.*;
 
 /**
  * @author <a href="mailto:kypros.chrysanthou@britebill.com">Kypros Chrysanthou</a>
