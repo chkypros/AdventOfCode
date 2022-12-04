@@ -1,6 +1,7 @@
 package com.github.chkypros.aoc2020.day13;
 
 import com.github.chkypros.aoc_template.AbstractSolution;
+import com.github.chkypros.aoc_template.Pair;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,11 +46,11 @@ public class ShuttleSearch extends AbstractSolution {
             .flatMap(s -> Arrays.stream(s.split(",")))
             .collect(Collectors.toList());
 
-        final List<Pair> shuttleInfo = new ArrayList<>();
+        final List<Pair<Long, Integer>> shuttleInfo = new ArrayList<>();
         for (int i = 0; i < shuttles.size(); i++) {
             final String s = shuttles.get(i);
             if (!"x".equals(s)) {
-                shuttleInfo.add(new Pair(Long.parseLong(s), i));
+                shuttleInfo.add(new Pair<>(Long.parseLong(s), i));
             }
         }
 
@@ -71,20 +72,13 @@ public class ShuttleSearch extends AbstractSolution {
         return super.solvePartTwo(stream);
     }
 
-    private boolean checkTimestamp(List<Pair> shuttleInfo, long timestamp) {
-        for (Pair pair : shuttleInfo) {
+    private boolean checkTimestamp(List<Pair<Long, Integer>> shuttleInfo, long timestamp) {
+        for (Pair<Long, Integer> pair : shuttleInfo) {
             if (0 != (timestamp - 19 + pair.second) % pair.first) {
                 return false;
             }
         }
 
         return true;
-    }
-
-    public static class Pair {
-        final long first;
-        final int second;
-
-        public Pair(long first, int second) { this.first = first; this.second = second; }
     }
 }
