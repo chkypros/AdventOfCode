@@ -1,14 +1,12 @@
 package com.github.chkypros.aoc2022.day5;
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.stream.Stream;
 
 import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
-import static org.junit.Assert.*;
 
 /**
  * @author <a href="mailto:kypros.chrysanthou@britebill.com">Kypros Chrysanthou</a>
@@ -19,6 +17,7 @@ public class SupplyStacksTest extends AbstractSolutionTest {
     public void setUp() {
         solution = new SupplyStacks();
         expectedAnswerPartOneSample = "CMZ";
+        expectedAnswerPartTwoSample = "MCD";
     }
 
     @Test
@@ -28,24 +27,58 @@ public class SupplyStacksTest extends AbstractSolutionTest {
     }
 
     @Test
-    public void partOne_two_columns_no_move() {
-        String[] lines = """
-            [A] [B]
-             1   2
-             
-            """.split("\n");
-        var answer = solution.solvePartOne(Stream.of(lines));
-        checkAnswer("AB", answer);
+    @Override
+    public void solvePartTwoSample() throws Exception {
+        super.solvePartTwoSample();
     }
 
     @Test
     public void partOne_twoColumns_noMove_singleItems() {
-        String[] lines = """
-            [X] [Y]
-             1   2
-             
-            """.split("\n");
+        String[] lines = {
+                "[X] [Y]",
+                " 1   2 ",
+                ""
+        };
         var answer = solution.solvePartOne(Stream.of(lines));
         checkAnswer("XY", answer);
+    }
+
+    @Test
+    public void partOne_threeColumns_noMove_twoStack() {
+        String[] lines = {
+                "    [Y] [Z]",
+                "[X] [A] [B]",
+                " 1   2   3 ",
+                ""
+        };
+        var answer = solution.solvePartOne(Stream.of(lines));
+        checkAnswer("XYZ", answer);
+    }
+
+    @Test
+    public void partOne_threeColumns_singleMove() {
+        String[] lines = {
+                "    [Y] [Z]",
+                "[X] [A] [B]",
+                " 1   2   3 ",
+                "",
+                "move 1 from 3 to 1"
+        };
+        var answer = solution.solvePartOne(Stream.of(lines));
+        checkAnswer("ZYB", answer);
+    }
+
+    @Test
+    public void partTwo_threeColumns_singleMove_twoCrates() {
+        String[] lines = {
+                "    [K] [C]",
+                "    [Y] [Z]",
+                "[X] [A] [B]",
+                " 1   2   3 ",
+                "",
+                "move 2 from 3 to 1"
+        };
+        var answer = solution.solvePartTwo(Stream.of(lines));
+        checkAnswer("CKB", answer);
     }
 }
