@@ -19,7 +19,7 @@ public class CampCleanup extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return stream
                 .map(this::getRangesPair)
                 .filter(p -> p.first.isOverlappingWith(p.second))

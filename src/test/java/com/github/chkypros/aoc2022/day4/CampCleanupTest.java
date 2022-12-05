@@ -13,8 +13,8 @@ public class CampCleanupTest extends AbstractSolutionTest {
     @Before
     public void setUp() {
         solution = new CampCleanup();
-        expectedAnswerPartOneSample = 2;
-        expectedAnswerPartTwoSample = 4;
+        expectedAnswerPartOneSample = 2L;
+        expectedAnswerPartTwoSample = 4L;
     }
 
     @Test

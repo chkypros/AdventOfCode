@@ -39,7 +39,7 @@ public class AdapterArray extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<Integer> sortedAdapters = stream.map(Integer::parseInt).sorted().collect(Collectors.toList());
 
         final List<Integer> adapterDiffs = new ArrayList<>();

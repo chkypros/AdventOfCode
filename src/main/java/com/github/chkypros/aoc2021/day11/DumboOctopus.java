@@ -27,7 +27,7 @@ public class DumboOctopus extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> energyLevelsList = stream.collect(Collectors.toList());
         final int rows = energyLevelsList.size();
         final int columns = energyLevelsList.get(0).length();

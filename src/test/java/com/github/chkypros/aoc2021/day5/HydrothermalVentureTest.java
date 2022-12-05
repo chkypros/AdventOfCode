@@ -23,7 +23,7 @@ public class HydrothermalVentureTest {
     public void solvePartTwoSample() throws Exception {
         Stream<String> stream = getSampleInput(this);
 
-        final Long answer = hydrothermalVenture.solvePartTwo(stream);
+        final var answer = hydrothermalVenture.solvePartTwo(stream);
 
         checkAnswer(12L, answer);
     }

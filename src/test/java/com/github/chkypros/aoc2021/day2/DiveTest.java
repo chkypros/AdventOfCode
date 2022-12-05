@@ -54,7 +54,7 @@ public class DiveTest {
         final Dive dive = new Dive(0, 1);
         Stream<String> stream = Stream.of(FORWARD + " 5");
 
-        Long answer = dive.solvePartTwo(stream);
+        var answer = dive.solvePartTwo(stream);
 
         checkAnswer(5L, answer);
     }
@@ -64,7 +64,7 @@ public class DiveTest {
         final Dive dive = new Dive(0, 0);
         Stream<String> stream = Stream.of(DOWN + " 3", FORWARD + " 4");
 
-        Long answer = dive.solvePartTwo(stream);
+        var answer = dive.solvePartTwo(stream);
 
         checkAnswer(48L, answer);
     }
@@ -74,7 +74,7 @@ public class DiveTest {
         final Dive dive = new Dive(0, 0);
         Stream<String> stream = Stream.of(DOWN + " 3", FORWARD + " 4");
 
-        Long answer = dive.solvePartTwo(stream);
+        var answer = dive.solvePartTwo(stream);
 
         checkAnswer(48L, answer);
     }

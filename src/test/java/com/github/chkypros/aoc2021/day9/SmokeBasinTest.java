@@ -35,7 +35,7 @@ public class SmokeBasinTest {
     public void solvePartTwoSample() throws Exception {
         Stream<String> stream = getSampleInput(this);
 
-        final Long answer = smokeBasin.solvePartTwo(stream);
+        final var answer = smokeBasin.solvePartTwo(stream);
 
         checkAnswer(1134L, answer);
     }
@@ -44,7 +44,7 @@ public class SmokeBasinTest {
     public void solvePartTwo() throws Exception {
         Stream<String> stream = Files.lines(getInputFilePath(this));
 
-        final Long answer = smokeBasin.solvePartTwo(stream);
+        final var answer = smokeBasin.solvePartTwo(stream);
 
         checkAnswer(786780L, answer);
     }

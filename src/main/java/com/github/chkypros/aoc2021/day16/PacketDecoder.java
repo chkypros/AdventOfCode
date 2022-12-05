@@ -35,7 +35,7 @@ public class PacketDecoder extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final BitsPacket packet = getBitsPacket(stream);
 
         return packet.getValue();

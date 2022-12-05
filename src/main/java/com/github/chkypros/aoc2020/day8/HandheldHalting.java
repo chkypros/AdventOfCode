@@ -37,7 +37,7 @@ public class HandheldHalting extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<Operation> operations = stream.map(Operation::of).collect(Collectors.toList());
 
         boolean[] visited = new boolean[operations.size()];

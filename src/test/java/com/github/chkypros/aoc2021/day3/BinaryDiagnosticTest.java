@@ -16,7 +16,7 @@ public class BinaryDiagnosticTest {
 
         Long answer = binaryDiagnostic.solvePartOne(stream);
 
-        checkAnswer(4, answer);
+        checkAnswer(4L, answer);
     }
 
     @Test
@@ -25,16 +25,16 @@ public class BinaryDiagnosticTest {
 
         Long answer = binaryDiagnostic.solvePartOne(stream);
 
-        checkAnswer(198, answer);
+        checkAnswer(198L, answer);
     }
 
     @Test
     public void partTwoMultipleItems() {
         Stream<String> stream = getSampleInput();
 
-        Long answer = binaryDiagnostic.solvePartTwo(stream);
+        var answer = binaryDiagnostic.solvePartTwo(stream);
 
-        checkAnswer(230, answer);
+        checkAnswer(230L, answer);
     }
 
     @Test

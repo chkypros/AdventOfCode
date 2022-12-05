@@ -45,7 +45,7 @@ public class RainRisk extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> instructions = stream.collect(Collectors.toList());
         long xPosition = 0;
         long yPosition = 0;

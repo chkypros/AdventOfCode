@@ -18,7 +18,7 @@ public class PassagePathing extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<CaveConnection> caveConnections = stream
                 .map(CaveConnection::of)
                 .collect(Collectors.toList());

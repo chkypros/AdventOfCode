@@ -17,8 +17,8 @@ public class RockPaperScissorsTest extends AbstractSolutionTest {
     @Before
     public void setUp() {
         solution = new RockPaperScissors();
-        expectedAnswerPartOneSample = 15;
-        expectedAnswerPartTwoSample = 12;
+        expectedAnswerPartOneSample = 15L;
+        expectedAnswerPartTwoSample = 12L;
     }
 
     @Test
@@ -35,25 +35,25 @@ public class RockPaperScissorsTest extends AbstractSolutionTest {
 
     @Test
     public void singleRound_draw_scissors() {
-        Long answer = solution.solvePartOne(Stream.of("C Z"));
+        var answer = solution.solvePartOne(Stream.of("C Z"));
         checkAnswer(6L, answer);
     }
 
     @Test
     public void singleRound_draw_rocks() {
-        Long answer = solution.solvePartOne(Stream.of("A X"));
+        var answer = solution.solvePartOne(Stream.of("A X"));
         checkAnswer(4L, answer);
     }
 
     @Test
     public void singleRound_win_paper() {
-        Long answer = solution.solvePartOne(Stream.of("A Y"));
+        var answer = solution.solvePartOne(Stream.of("A Y"));
         checkAnswer(8L, answer);
     }
 
     @Test
     public void singleRound_draw_part_two() {
-        Long answer = solution.solvePartTwo(Stream.of("A Y"));
+        var answer = solution.solvePartTwo(Stream.of("A Y"));
         checkAnswer(4L, answer);
     }
 }

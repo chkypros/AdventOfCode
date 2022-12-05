@@ -19,7 +19,7 @@ public class SyntaxSorting extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<Long> scores = stream
                 .map(ChunkSequence::of)
                 .filter(ChunkSequence::isIncomplete)

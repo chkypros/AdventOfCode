@@ -15,7 +15,7 @@ public class CalorieCounting extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return solveForTop(stream, 3);
     }
 

@@ -33,7 +33,7 @@ public class Lanternfish extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
 
         return stream.flatMap(s -> Arrays.stream(s.split(",")))
                 .map(Integer::parseInt)

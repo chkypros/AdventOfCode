@@ -37,7 +37,7 @@ public class Dive extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
 
         List<DiveCommand> commands = stream.map(DiveCommand::of).collect(Collectors.toList());
 

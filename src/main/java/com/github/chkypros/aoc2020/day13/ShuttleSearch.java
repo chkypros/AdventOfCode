@@ -40,7 +40,7 @@ public class ShuttleSearch extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> shuttles = stream
             .skip(1)
             .flatMap(s -> Arrays.stream(s.split(",")))

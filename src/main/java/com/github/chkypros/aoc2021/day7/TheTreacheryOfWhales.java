@@ -27,7 +27,7 @@ public class TheTreacheryOfWhales extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         positions = stream.flatMap(s -> Arrays.stream(s.split(",")))
                 .map(Integer::parseInt)
                 .sorted()

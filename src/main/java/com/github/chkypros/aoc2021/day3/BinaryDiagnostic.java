@@ -36,7 +36,7 @@ public class BinaryDiagnostic extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<int[]> readings = stream
                 .map(String::toCharArray)
                 .map(BinaryDiagnosticUtils::toIntArray)

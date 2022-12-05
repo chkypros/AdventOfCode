@@ -51,7 +51,7 @@ public class DockingData extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> instructions = stream.collect(Collectors.toList());
         final Map<String, Long> mem = new HashMap<>();
         String bitmask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";

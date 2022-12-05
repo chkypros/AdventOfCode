@@ -22,7 +22,7 @@ public class Chiton extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         Node[][] graph = parseNodes(stream);
         Point source = Point.of(0, 0);
 

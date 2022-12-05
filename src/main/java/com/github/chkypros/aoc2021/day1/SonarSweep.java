@@ -24,7 +24,7 @@ public class SonarSweep extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         Long increments = 0L;
 
         List<Long> depths = stream.map(Long::valueOf).collect(Collectors.toList());

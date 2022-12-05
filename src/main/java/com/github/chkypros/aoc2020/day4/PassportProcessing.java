@@ -49,7 +49,7 @@ public class PassportProcessing extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> lines = stream.collect(Collectors.toList());
         List<Batch> batchList = getBatches(lines);
 

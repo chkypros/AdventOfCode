@@ -36,7 +36,7 @@ public class HandyHaversacks extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         Map<String, Node> index = new HashMap<>();
 
         populateIndex(stream, index);

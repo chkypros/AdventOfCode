@@ -36,7 +36,7 @@ public class SmokeBasin extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> heightsList = stream.collect(Collectors.toList());
         final int rows = heightsList.size();
         final int columns = heightsList.get(0).length();

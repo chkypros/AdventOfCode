@@ -23,7 +23,7 @@ public class BinaryBoarding extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<Integer> integerList = stream.map(s -> s.replaceAll("F|L", "0").replaceAll("B|R", "1"))
             .map(s -> Integer.parseInt(s, 2))
             .sorted()

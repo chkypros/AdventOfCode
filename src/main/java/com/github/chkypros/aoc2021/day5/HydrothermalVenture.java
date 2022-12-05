@@ -26,7 +26,7 @@ public class HydrothermalVenture extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final Map<Integer, Map<Integer, Integer>> ventDensity = new Hashtable<>();
         stream.map(VentLine::of)
                 .filter(Objects::nonNull)

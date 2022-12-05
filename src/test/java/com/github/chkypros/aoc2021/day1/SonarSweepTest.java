@@ -26,20 +26,20 @@ public class SonarSweepTest {
     public void partTwoSingleWindow() {
         Stream<String> stream = LongStream.range(0, 3).mapToObj(String::valueOf);
 
-        Long answer = sonarSweep.solvePartTwo(stream);
+        var answer = sonarSweep.solvePartTwo(stream);
 
         assertNotNull(answer);
-        assertEquals(0L, answer.longValue());
+        assertEquals(0L, answer);
     }
 
     @Test
     public void partTwoSingleIncrement() {
         Stream<String> stream = LongStream.range(0, 4).mapToObj(String::valueOf);
 
-        Long answer = sonarSweep.solvePartTwo(stream);
+        var answer = sonarSweep.solvePartTwo(stream);
 
         assertNotNull(answer);
-        assertEquals(1L, answer.longValue());
+        assertEquals(1L, answer);
     }
 
     @Test

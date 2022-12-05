@@ -68,7 +68,7 @@ public class OperationOrder extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> expressions = stream.collect(Collectors.toList());
 
         long sum = 0;

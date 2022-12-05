@@ -51,7 +51,7 @@ public class CustomCustoms extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> lines = stream.collect(Collectors.toList());
 
         List<GroupPartTwo> groupsPartTwo = getGroupsPartTwo(lines);

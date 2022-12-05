@@ -19,7 +19,7 @@ public class ExtendedPolymerization extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return solveExtendedPolymerization(stream, 40);
     }
 

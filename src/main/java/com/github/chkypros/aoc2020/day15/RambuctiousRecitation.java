@@ -23,7 +23,7 @@ public class RambuctiousRecitation extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return getNthRecitedNumber(stream, 30000000);
     }
 

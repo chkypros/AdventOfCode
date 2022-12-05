@@ -13,8 +13,8 @@ public class RucksackReorganizationTest extends AbstractSolutionTest {
     @Before
     public void setUp() {
         solution = new RucksackReorganization();
-        expectedAnswerPartOneSample = 157;
-        expectedAnswerPartTwoSample = 70;
+        expectedAnswerPartOneSample = 157L;
+        expectedAnswerPartTwoSample = 70L;
     }
 
     @Test
@@ -32,18 +32,18 @@ public class RucksackReorganizationTest extends AbstractSolutionTest {
     @Test
     public void partOne_findCommonType_twoItems() {
         final var answer = solution.solvePartOne(Stream.of("pp"));
-        checkAnswer(16, answer);
+        checkAnswer(16L, answer);
     }
 
     @Test
     public void partOne_findCommonType_twoItems_capitals() {
         final var answer = solution.solvePartOne(Stream.of("LL"));
-        checkAnswer(38, answer);
+        checkAnswer(38L, answer);
     }
 
     @Test
     public void partTwo_findCommonType_singleGroup() {
         final var answer = solution.solvePartTwo(Stream.of("abc", "bcf", "cop"));
-        checkAnswer(3, answer);
+        checkAnswer(3L, answer);
     }
 }

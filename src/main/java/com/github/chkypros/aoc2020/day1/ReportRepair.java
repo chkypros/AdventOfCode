@@ -36,7 +36,7 @@ public class ReportRepair extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<Long> sortednNumbers = stream.map(Long::parseLong).collect(Collectors.toList());
 
         long product = -1;

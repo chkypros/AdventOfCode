@@ -20,7 +20,7 @@ public class TransparentOrigami extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final Set<Point> foldedDots = processInstructions(stream, false);
 
         final int maxRow = foldedDots.stream()

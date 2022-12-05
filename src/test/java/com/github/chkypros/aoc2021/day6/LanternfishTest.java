@@ -35,7 +35,7 @@ public class LanternfishTest {
         final Lanternfish lanternfish = new Lanternfish(18);
         final Stream<String> stream = Stream.of("1");
 
-        final Long answer = lanternfish.solvePartTwo(stream);
+        final var answer = lanternfish.solvePartTwo(stream);
 
         checkAnswer(7L, answer);
     }
@@ -45,7 +45,7 @@ public class LanternfishTest {
         final Lanternfish lanternfish = new Lanternfish(256);
         final Stream<String> stream = Stream.of("3,4,3,1,2");
 
-        final Long answer = lanternfish.solvePartTwo(stream);
+        final var answer = lanternfish.solvePartTwo(stream);
 
         checkAnswer(26984457539L, answer);
     }
@@ -60,7 +60,7 @@ public class LanternfishTest {
     @Test
     public void solvePartTwo() throws Exception {
         Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
-        final Long answer = new Lanternfish(256).solvePartTwo(stream);
+        final var answer = new Lanternfish(256).solvePartTwo(stream);
         System.out.println("answer = " + answer);
     }
 }

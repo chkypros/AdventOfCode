@@ -19,15 +19,15 @@ public abstract class AbstractSolution {
         }
     }
 
-    public Long solvePartOne(Stream<String> stream) {
+    public Object solvePartOne(Stream<String> stream) {
         return null;
     }
 
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return null;
     }
 
-    private void solvePart(final Stream<String> stream, final Function<Stream<String>, Long> function, final String label) {
+    private void solvePart(final Stream<String> stream, final Function<Stream<String>, Object> function, final String label) {
         Optional.ofNullable(function.apply(stream))
                 .ifPresent(answer -> System.out.println(label + " answer = " + answer));
     }

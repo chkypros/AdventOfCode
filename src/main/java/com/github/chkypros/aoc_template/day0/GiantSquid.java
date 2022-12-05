@@ -27,7 +27,7 @@ public class GiantSquid extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> input = stream.collect(Collectors.toList());
         final List<Integer> drawNumbers = GiantSquidUtils.getDrawNumbers(input);
 

@@ -27,7 +27,7 @@ public class SevenSegmentSearch extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return stream.map(ValueDecoder::new)
                 .mapToLong(ValueDecoder::decode)
                 .sum();

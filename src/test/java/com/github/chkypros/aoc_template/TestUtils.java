@@ -13,25 +13,25 @@ public class TestUtils {
         // Utility class
     }
 
-    public static void solvePartOneSample(AbstractSolution solution, Long expectedAnswer) throws Exception {
+    public static void solvePartOneSample(AbstractSolution solution, Object expectedAnswer) throws Exception {
         solvePartSample(solution, expectedAnswer, AbstractSolution::solvePartOne);
     }
 
-    public static void solvePartTwoSample(AbstractSolution solution, Long expectedAnswer) throws Exception {
+    public static void solvePartTwoSample(AbstractSolution solution, Object expectedAnswer) throws Exception {
         solvePartSample(solution, expectedAnswer, AbstractSolution::solvePartTwo);
     }
 
-    private static void solvePartSample(AbstractSolution solution, Long expectedAnswer, BiFunction<AbstractSolution, Stream<String>, Long> solutionMethod) throws Exception {
+    private static void solvePartSample(AbstractSolution solution, Object expectedAnswer, BiFunction<AbstractSolution, Stream<String>, Object> solutionMethod) throws Exception {
         Stream<String> stream = getSampleInput(solution);
 
-        final Long answer = solutionMethod.apply(solution, stream);
+        final Object answer = solutionMethod.apply(solution, stream);
 
         checkAnswer(expectedAnswer, answer);
     }
 
-    public static void checkAnswer(long expectedAnswer, Long answer) {
+    public static void checkAnswer(Object expectedAnswer, Object answer) {
         assertNotNull(answer);
-        assertEquals(expectedAnswer, answer.longValue());
+        assertEquals(expectedAnswer, answer);
     }
 
     public static Stream<String> getSampleInput(final Object object) throws Exception {

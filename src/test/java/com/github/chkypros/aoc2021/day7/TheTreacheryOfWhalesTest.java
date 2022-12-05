@@ -37,7 +37,7 @@ public class TheTreacheryOfWhalesTest {
         final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
         final Stream<String> stream = getSampleInput();
 
-        final Long answer = theTreacheryOfWhales.solvePartTwo(stream);
+        final var answer = theTreacheryOfWhales.solvePartTwo(stream);
 
         checkAnswer(168L, answer);
     }
@@ -47,7 +47,7 @@ public class TheTreacheryOfWhalesTest {
         final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
         final Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
 
-        final Long answer = theTreacheryOfWhales.solvePartTwo(stream);
+        final var answer = theTreacheryOfWhales.solvePartTwo(stream);
 
         checkAnswer(99540554L, answer);
     }

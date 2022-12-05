@@ -16,7 +16,7 @@ public class RucksackReorganization extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final var strings = stream.toArray(String[]::new);
         return IntStream.range(0, strings.length / 3)
                 .map(i -> i * 3)

@@ -21,9 +21,9 @@ public class PassagePathingTest extends AbstractSolutionTest {
     public void solvePartOneFirstExample() throws Exception {
         final Stream<String> stream = Files.lines(Utils.getInputFilePath(this, "-first-example"));
 
-        final Long answer = solution.solvePartOne(stream);
+        final var answer = solution.solvePartOne(stream);
 
-        checkAnswer(10, answer);
+        checkAnswer(10L, answer);
     }
 
     @Test
@@ -42,9 +42,9 @@ public class PassagePathingTest extends AbstractSolutionTest {
     public void solvePartTwoFirstExample() throws Exception {
         final Stream<String> stream = Files.lines(Utils.getInputFilePath(this, "-first-example"));
 
-        final Long answer = solution.solvePartTwo(stream);
+        final var answer = solution.solvePartTwo(stream);
 
-        checkAnswer(36, answer);
+        checkAnswer(36L, answer);
     }
 
     @Test

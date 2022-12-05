@@ -22,7 +22,7 @@ public class GiantSquidTest {
     public void partTwoSample() throws Exception {
         final Stream<String> stream = getSampleInput(this);
 
-        final Long answer = giantSquid.solvePartTwo(stream);
+        final var answer = giantSquid.solvePartTwo(stream);
 
         checkAnswer(1924L, answer);
     }

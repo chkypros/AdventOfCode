@@ -43,7 +43,7 @@ public class EncodingError extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         final List<String> numberStrings = stream.collect(Collectors.toList());
         final Long invalidNumber = solvePartOne(numberStrings.stream());
         final List<Long> numbers = numberStrings.stream().map(Long::parseLong).collect(Collectors.toList());

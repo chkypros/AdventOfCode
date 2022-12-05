@@ -33,7 +33,7 @@ public class TobogganTrajectory extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         class Pair { int first, second; Pair(int f, int s) {first = f; second = s;} public String toString() {return first + "," + second; } }
         Map<Pair, Long> treesEncountered = new HashMap<>();
         treesEncountered.put(new Pair(1, 1), 0L);

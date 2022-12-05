@@ -34,7 +34,7 @@ public class SevenSegmentSearchTest {
     public void solvePartTwoSample() throws Exception {
         Stream<String> stream = getSampleInput(this);
 
-        final Long answer = sevenSegmentSearch.solvePartTwo(stream);
+        final var answer = sevenSegmentSearch.solvePartTwo(stream);
 
         checkAnswer(61229L, answer);
     }
@@ -43,7 +43,7 @@ public class SevenSegmentSearchTest {
     public void solvePartTwo() throws Exception {
         final Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
 
-        final Long answer = sevenSegmentSearch.solvePartTwo(stream);
+        final var answer = sevenSegmentSearch.solvePartTwo(stream);
 
         checkAnswer(1011823L, answer);
     }

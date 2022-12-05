@@ -1,5 +1,6 @@
 package com.github.chkypros.aoc_template;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.file.Files;
@@ -12,10 +13,10 @@ import static com.github.chkypros.aoc_template.Utils.getInputFilePath;
 
 public abstract class AbstractSolutionTest {
     protected AbstractSolution solution;
-    protected long expectedAnswerPartOneSample;
-    protected long expectedAnswerPartTwoSample;
-    protected long expectedAnswerPartOne;
-    protected long expectedAnswerPartTwo;
+    protected Object expectedAnswerPartOneSample;
+    protected Object expectedAnswerPartTwoSample;
+    protected Object expectedAnswerPartOne;
+    protected Object expectedAnswerPartTwo;
 
     public void solvePartOneSample() throws Exception {
         solvePartOne(expectedAnswerPartOneSample, getSampleInput(solution));
@@ -33,19 +34,20 @@ public abstract class AbstractSolutionTest {
         solvePartTwo(expectedAnswerPartTwo, Files.lines(getInputFilePath(solution)));
     }
 
-    public void solvePartOne(long expectedAnswer, Stream<String> stream) {
+    public void solvePartOne(Object expectedAnswer, Stream<String> stream) {
         solvePart(expectedAnswer, stream, AbstractSolution::solvePartOne);
     }
 
-    public void solvePartTwo(long expectedAnswer, Stream<String> stream) {
+    public void solvePartTwo(Object expectedAnswer, Stream<String> stream) {
         solvePart(expectedAnswer, stream, AbstractSolution::solvePartTwo);
     }
 
-    private void solvePart(Long expectedAnswer, Stream<String> stream, BiFunction<AbstractSolution, Stream<String>, Long> solvePartTwo) {
-        final Long answer = solvePartTwo.apply(solution, stream);
+    private void solvePart(Object expectedAnswer, Stream<String> stream, BiFunction<AbstractSolution, Stream<String>, Object> solvePartTwo) {
+        final Object answer = solvePartTwo.apply(solution, stream);
         checkAnswer(expectedAnswer, answer);
     }
 
+    @Ignore
     @Test
     public void solve() throws Exception {
         solution.solve();

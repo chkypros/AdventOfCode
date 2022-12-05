@@ -37,7 +37,7 @@ public class PasswordPhilosophy extends AbstractSolution {
         return policyMin <= charIntances && charIntances <= policyMax;
     }
 
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         return stream
             .filter(PasswordPhilosophy::isValidPartTwo)
             .count();

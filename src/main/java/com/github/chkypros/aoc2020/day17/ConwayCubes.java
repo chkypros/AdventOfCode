@@ -38,7 +38,7 @@ public class ConwayCubes extends AbstractSolution {
     }
 
     @Override
-    public Long solvePartTwo(Stream<String> stream) {
+    public Object solvePartTwo(Stream<String> stream) {
         Map<Coordinates, Boolean> pocketSpace = new HashMap<>();
         final List<String> lines = stream.collect(Collectors.toList());
         for (int i = 0; i < lines.size(); i++) {

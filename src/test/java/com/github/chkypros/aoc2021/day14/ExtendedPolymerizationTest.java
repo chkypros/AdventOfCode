@@ -7,8 +7,8 @@ public class ExtendedPolymerizationTest extends AbstractSolutionTest {
 
     public ExtendedPolymerizationTest() {
         solution = new ExtendedPolymerization();
-        expectedAnswerPartOneSample = 1588;
-        expectedAnswerPartOne = 2947;
+        expectedAnswerPartOneSample = 1588L;
+        expectedAnswerPartOne = 2947L;
         expectedAnswerPartTwoSample = 2188189693529L;
     }
 
