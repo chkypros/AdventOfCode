@@ -31,7 +31,7 @@ public class TestUtils {
 
     public static void checkAnswer(Object expectedAnswer, Object answer) {
         assertNotNull(answer);
-        assertEquals(expectedAnswer, answer);
+        assertEquals(String.valueOf(expectedAnswer), String.valueOf(answer));
     }
 
     public static Stream<String> getSampleInput(final Object object) throws Exception {

@@ -1,6 +1,5 @@
 package com.github.chkypros.aoc_template;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.file.Files;
@@ -47,7 +46,6 @@ public abstract class AbstractSolutionTest {
         checkAnswer(expectedAnswer, answer);
     }
 
-    @Ignore
     @Test
     public void solve() throws Exception {
         solution.solve();
