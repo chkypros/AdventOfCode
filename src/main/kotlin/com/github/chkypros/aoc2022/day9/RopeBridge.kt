@@ -15,6 +15,10 @@ class RopeBridge : AbstractSolution() {
         return solveForSize(2, stream)
     }
 
+    override fun solvePartTwo(stream: Stream<String>): Int {
+        return solveForSize(10, stream)
+    }
+
     private fun solveForSize(size: Int, stream: Stream<String>): Int {
         rope = IntRange(1, size).map { Pair(0, 0) }.toTypedArray()
         tailTrailer = TailTrailer()
@@ -32,10 +36,6 @@ class RopeBridge : AbstractSolution() {
             }
 
         return tailTrailer.visitedPositions.size
-    }
-
-    override fun solvePartTwo(stream: Stream<String>): Int {
-        return solveForSize(10, stream)
     }
 
     private fun updateHeadPosition(step: Pair<Int, Int>) {
