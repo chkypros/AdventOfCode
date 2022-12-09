@@ -9,7 +9,6 @@ import kotlin.math.abs
  */
 class RopeBridge : AbstractSolution() {
     lateinit var rope : Array<Pair<Int,Int>>
-    lateinit var tailTrailer : TailTrailer
 
     override fun solvePartOne(stream: Stream<String>): Int {
         return solveForSize(2, stream)
@@ -21,7 +20,7 @@ class RopeBridge : AbstractSolution() {
 
     private fun solveForSize(size: Int, stream: Stream<String>): Int {
         rope = IntRange(1, size).map { Pair(0, 0) }.toTypedArray()
-        tailTrailer = TailTrailer()
+        val tailTrailer = TailTrailer()
 
         stream
             .map { Step(it) }
