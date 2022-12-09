@@ -8,40 +8,55 @@ import kotlin.math.abs
  * @author <a href="mailto:kypros.chrysanthou@britebill.com">Kypros Chrysanthou</a>
  */
 class RopeBridge : AbstractSolution() {
-    // Head and Tail start at 0,0 (visited by default)
-    var headPosition = Pair(0, 0)
-    var tailPosition = Pair(0, 0)
-    val tailTrailer = TailTrailer()
+    lateinit var rope : Array<Pair<Int,Int>>
+    lateinit var tailTrailer : TailTrailer
 
     override fun solvePartOne(stream: Stream<String>): Int {
+        return solveForSize(2, stream)
+    }
+
+    private fun solveForSize(size: Int, stream: Stream<String>): Int {
+        rope = IntRange(1, size).map { Pair(0, 0) }.toTypedArray()
+        tailTrailer = TailTrailer()
+
         stream
             .map { Step(it) }
             .forEach {
                 for (i in 0 until it.count) {
                     updateHeadPosition(it.step)
-                    updateTailPosition()
-                    tailTrailer.markPosition(tailPosition)
+                    for (j in 1 until size) {
+                        updateTailingPosition(j)
+                    }
+                    tailTrailer.markPosition(rope[size - 1])
                 }
             }
 
         return tailTrailer.visitedPositions.size
     }
 
+    override fun solvePartTwo(stream: Stream<String>): Int {
+        return solveForSize(10, stream)
+    }
+
     private fun updateHeadPosition(step: Pair<Int, Int>) {
-        headPosition = Pair(
-            headPosition.first + step.first,
-            headPosition.second + step.second
+        rope[0] = Pair(
+            rope[0].first + step.first,
+            rope[0].second + step.second
         )
     }
 
-    private fun updateTailPosition() {
-        val verticalDistance = headPosition.first - tailPosition.first
-        val horizontalDistance = headPosition.second - tailPosition.second
+    private fun updateTailingPosition(knotIndex: Int) {
+        val previousKnot = knotIndex - 1
+
+        val verticalDistance = rope[previousKnot].first - rope[knotIndex].first
+        val horizontalDistance = rope[previousKnot].second - rope[knotIndex].second
+
         val absoluteVerticalDistance = abs(verticalDistance)
         val absoluteHorizontalDistance = abs(horizontalDistance)
+
         if (absoluteVerticalDistance > 1 || absoluteHorizontalDistance > 1) {
-            var verticalPosition = tailPosition.first
-            var horizontalPosition = tailPosition.second
+            var verticalPosition = rope[knotIndex].first
+            var horizontalPosition = rope[knotIndex].second
 
             if (absoluteVerticalDistance > 0) {
                 verticalPosition += if (verticalDistance > 0) 1 else -1
@@ -50,7 +65,7 @@ class RopeBridge : AbstractSolution() {
                 horizontalPosition += if (horizontalDistance > 0) 1 else -1
             }
 
-            tailPosition = Pair(verticalPosition, horizontalPosition)
+            rope[knotIndex] = Pair(verticalPosition, horizontalPosition)
         }
     }
 

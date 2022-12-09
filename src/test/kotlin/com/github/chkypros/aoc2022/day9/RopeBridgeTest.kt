@@ -15,11 +15,17 @@ class RopeBridgeTest : AbstractSolutionTest() {
     fun setUp() {
         solution = RopeBridge()
         expectedAnswerPartOneSample = 13
+        expectedAnswerPartTwoSample = 1
     }
 
     @Test
     override fun solvePartOneSample() {
         super.solvePartOneSample()
+    }
+
+    @Test
+    override fun solvePartTwoSample() {
+        super.solvePartTwoSample()
     }
 
     @Test
@@ -32,5 +38,19 @@ class RopeBridgeTest : AbstractSolutionTest() {
     fun partOne_singleTailMove() {
         val answer = solution.solvePartOne(Stream.of("R 2"))
         checkAnswer(2, answer)
+    }
+
+    @Test
+    fun partTwo_biggerExample() {
+        val stream = Stream.of("R 5",
+            "U 8",
+            "L 8",
+            "D 3",
+            "R 17",
+            "D 10",
+            "L 25",
+            "U 20")
+        val answer = solution.solvePartTwo(stream)
+        checkAnswer(36, answer)
     }
 }
