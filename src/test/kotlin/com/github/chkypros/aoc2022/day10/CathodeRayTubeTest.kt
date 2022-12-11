@@ -12,11 +12,17 @@ class CathodeRayTubeTest:AbstractSolutionTest() {
     fun setUp() {
         solution = CathodeRayTube()
         expectedAnswerPartOneSample = 13140
+        expectedAnswerPartTwoSample = "RZHFGJCB"
     }
 
     @Test
     override fun solvePartOneSample() {
         super.solvePartOneSample()
+    }
+
+    @Test
+    override fun solvePartTwoSample() {
+        super.solvePartTwoSample()
     }
 
     @Test
