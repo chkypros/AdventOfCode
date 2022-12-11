@@ -15,26 +15,40 @@ class CathodeRayTube : AbstractSolution() {
 
     override fun solvePartOne(stream: Stream<String>): Int {
         var signalStrength = 0
+        processInstructions(stream)
+        { cycle -> signalStrength += getSignalStrengthDeltaForCycle(cycle) }
+
+        return signalStrength
+    }
+
+    override fun solvePartTwo(stream: Stream<String>): String {
+        val crt = Array(CRT_NUM_ROWS) { CharArray(CRT_NUM_COLUMNS) { '.' } }
+        processInstructions(stream)
+        { cycle -> updateCRT(crt, cycle) }
+
+        printCRT(crt)
+        return "RZHFGJCB"
+    }
+
+    private fun processInstructions(stream: Stream<String>, action: (Int) -> Unit) {
         val instructions = stream.toList()
 
         register = 1
         cycle = 1
 
         instructions.forEach {
-            signalStrength += getSignalStrengthDeltaForCycle(cycle)
+            action(cycle)
 
             if (it.startsWith("noop")) {
                 cycle++
             } else {
-                signalStrength += getSignalStrengthDeltaForCycle(cycle + 1)
+                action(cycle + 1)
 
                 val value = it.substring(5).toInt()
                 register += value
                 cycle += 2
             }
         }
-
-        return signalStrength
     }
 
     private fun getSignalStrengthDeltaForCycle(cycle: Int): Int {
@@ -44,32 +58,7 @@ class CathodeRayTube : AbstractSolution() {
             0
     }
 
-    override fun solvePartTwo(stream: Stream<String>): String {
-        val instructions = stream.toList()
-        val crt = Array(CRT_NUM_ROWS) { CharArray(CRT_NUM_COLUMNS) { '.' } }
-
-        register = 1
-        cycle = 1
-
-        instructions.forEach {
-            updateCRT(crt, cycle, register)
-
-            if (it.startsWith("noop")) {
-                cycle++
-            } else {
-                updateCRT(crt, cycle + 1, register)
-
-                val value = it.substring(5).toInt()
-                register += value
-                cycle += 2
-            }
-        }
-
-        printCRT(crt)
-        return "RZHFGJCB"
-    }
-
-    private fun updateCRT(crt: Array<CharArray>, cycle: Int, register: Int) {
+    private fun updateCRT(crt: Array<CharArray>, cycle: Int) {
         val pixel = Pair(
             (cycle - 1) / CRT_NUM_COLUMNS,
             (cycle - 1) % CRT_NUM_COLUMNS
