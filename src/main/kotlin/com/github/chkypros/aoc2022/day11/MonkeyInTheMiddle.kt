@@ -10,7 +10,7 @@ class MonkeyInTheMiddle: AbstractSolution() {
     }
 
     override fun solvePartTwo(stream: Stream<String>): Long {
-        return solveForRoundsWithRelief(stream, 1000)
+        return solveForRoundsWithRelief(stream, 10_000)
         { item -> item }
     }
 
@@ -20,6 +20,7 @@ class MonkeyInTheMiddle: AbstractSolution() {
         relief: (Long) -> Long
     ): Long {
         val monkeys = parseNotes(stream)
+        val divisorsProduct = monkeys.map { it.testDivisor }.reduce {x, y -> x * y}
 
         for (r in 0 until rounds) {
             for (m in monkeys) {
@@ -27,6 +28,7 @@ class MonkeyInTheMiddle: AbstractSolution() {
                     var item = m.items.removeFirst()
                     item = m.operation(item)
                     item = relief(item)
+                    item %= divisorsProduct
                     val nextMonkey = m.toMonkey[m.test(item)]
                     monkeys[nextMonkey!!].items.add(item)
                 }
@@ -46,6 +48,7 @@ class MonkeyInTheMiddle: AbstractSolution() {
     class Monkey(description: String) {
         val operation: (Long) -> Long
         val test: (Long) -> Boolean
+        val testDivisor: Long
         val toMonkey = HashMap<Boolean, Int>()
 
         var items: MutableList<Long>
@@ -84,7 +87,8 @@ class MonkeyInTheMiddle: AbstractSolution() {
             // endregion
 
             // region Setup test
-            test = { value -> 0L == value % descriptionLines[3].split(' ').filter { it.isNotBlank() }[3].toLong() }
+            testDivisor = descriptionLines[3].split(' ').filter { it.isNotBlank() }[3].toLong()
+            test = { value -> 0L == value % testDivisor }
             // endregion
 
             // region Setup Monkeys to throw

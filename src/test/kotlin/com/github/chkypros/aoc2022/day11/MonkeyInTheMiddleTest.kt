@@ -2,8 +2,6 @@ package com.github.chkypros.aoc2022.day11
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest
 import org.junit.Before
-
-import org.junit.Assert.*
 import org.junit.Test
 
 class MonkeyInTheMiddleTest: AbstractSolutionTest() {
