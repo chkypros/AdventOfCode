@@ -2,12 +2,10 @@ package com.github.chkypros.aoc2022.day15
 
 import com.github.chkypros.aoc_template.AbstractSolution
 import com.github.chkypros.aoc_template.Point
-import java.time.LocalDateTime
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 import java.util.stream.Stream
 import kotlin.math.abs
-import kotlin.math.max
 
 class BeaconExclusionZone : AbstractSolution() {
     private val sensorDescriptionPattern: Pattern = Pattern.compile("Sensor at x=(-?\\d+), y=(-?\\d+): closest beacon is at x=(-?\\d+), y=(-?\\d+)")
@@ -29,27 +27,18 @@ class BeaconExclusionZone : AbstractSolution() {
         return clearPositions.size
     }
 
-    override fun solvePartTwo(stream: Stream<String>): Int {
+    override fun solvePartTwo(stream: Stream<String>): Long {
         val sensors = parseInput(stream)
-        for (x in 0..searchRange) {
-            if (x % 1_000 == 0) println("Checking x = $x " + LocalDateTime.now().toString())
-            var y = 0
-            coordinate@ while (y <= searchRange) {
-//                if (y % 1_000_000 == 0) println("  Checking y = $y")
-                for (sensor in sensors) {
-                    val rowOffset = sensor.position.row - y
-                    val rowDistance = abs(rowOffset)
-                    val manhattanDistance = rowDistance + abs(sensor.position.column - x)
-                    if (sensor.distance >= manhattanDistance) {
-                        y += max(2 * rowOffset - 1, 1)
-                        continue@coordinate
-                    }
-                }
-
-                return x * 4_000_000 + y
-            }
-        }
-        return -1
+        val outOfScopePoint = sensors.flatMap(this::getPointsOutsideRange)
+// region Premature optimization causing java.lang.OutOfMemoryError: Java heap space
+//            .groupBy { it }
+//            .mapValues { it.value.size }
+//            .toList()
+//            .sortedBy { it.second }
+//            .reversed()
+// endregion
+            .firstOrNull { !isInSensorsScopes(it, sensors) }
+        return if (null == outOfScopePoint) -1 else outOfScopePoint.column.toLong() * 4_000_000 + outOfScopePoint.row
     }
 
     private fun parseInput(stream: Stream<String>): List<Sensor> = stream.map(this::getSensor).toList()
@@ -86,20 +75,52 @@ class BeaconExclusionZone : AbstractSolution() {
             .toSet()
     }
 
-    data class Sensor(val position: Point, val closestBeaconPosition: Point) {
-        val rowOffset: Int
-        val columnOffset: Int
-        val rowDistance: Int
-        val columnDistance: Int
-        val distance: Int
+    private fun getPointsOutsideRange(sensor: Sensor): List<Point> {
+        val pointsOutsideRange = mutableListOf<Point>()
 
-        init {
-            rowOffset = position.row - closestBeaconPosition.row
-            columnOffset = position.column - closestBeaconPosition.column
-            rowDistance = abs(rowOffset)
-            columnDistance = abs(columnOffset)
-            distance = rowDistance + columnDistance
+        val outerDistance = sensor.distance + 1
+        addPointRange(sensor, pointsOutsideRange, Pair(-outerDistance, 0), Pair(1, 1))
+        addPointRange(sensor, pointsOutsideRange, Pair(0, outerDistance), Pair(1, -1))
+        addPointRange(sensor, pointsOutsideRange, Pair(outerDistance, 0), Pair(-1, -1))
+        addPointRange(sensor, pointsOutsideRange, Pair(0, -outerDistance), Pair(-1, 1))
 
+        return pointsOutsideRange
+    }
+
+    private fun addPointRange(
+        sensor: Sensor,
+        points: MutableList<Point>,
+        startingOffset: Pair<Int, Int>,
+        step: Pair<Int, Int>
+    ) {
+        var point = Point(sensor.position.row + startingOffset.first, sensor.position.column + startingOffset.second)
+        for (i in 0..sensor.distance) {
+            if (point.row in 0..searchRange
+                && point.column in 0..searchRange) {
+                points.add(point)
+            }
+            point = Point(point.row + step.first, point.column + step.second)
         }
+    }
+
+    private fun isInSensorsScopes(point: Point, sensors: List<Sensor>): Boolean {
+        for (sensor in sensors) {
+            val rowOffset = sensor.position.row - point.row
+            val rowDistance = abs(rowOffset)
+            val manhattanDistance = rowDistance + abs(sensor.position.column - point.column)
+            if (sensor.distance >= manhattanDistance) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    data class Sensor(val position: Point, val closestBeaconPosition: Point) {
+        private val rowOffset = position.row - closestBeaconPosition.row
+        private val columnOffset = position.column - closestBeaconPosition.column
+        private val rowDistance = abs(rowOffset)
+        private val columnDistance = abs(columnOffset)
+        val distance = rowDistance + columnDistance
     }
 }
