@@ -17,6 +17,22 @@ public class Point {
         return column;
     }
 
+    public Point add(Point other) {
+        return add(other.row, other.column);
+    }
+
+    public Point add(Pair<Integer, Integer> pair) {
+        return add(pair.first, pair.second);
+    }
+
+    public Point add(kotlin.Pair<Integer, Integer> pair) {
+        return add(pair.getFirst(), pair.getSecond());
+    }
+
+    public Point add(int row, int column) {
+        return of(this.row + row, this.column + column);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
