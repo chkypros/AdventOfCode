@@ -1,4 +1,4 @@
-package com.github.chkypros.aoc_template;
+package com.github.chkypros.aoc_common;
 
 public class Point {
     public final int row;

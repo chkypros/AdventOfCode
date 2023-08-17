@@ -1,5 +1,7 @@
 package com.github.chkypros.aoc_template;
 
+import com.github.chkypros.aoc_common.Utils;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;

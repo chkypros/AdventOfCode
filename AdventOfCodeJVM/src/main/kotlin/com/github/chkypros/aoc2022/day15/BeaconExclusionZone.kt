@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day15
 
 import com.github.chkypros.aoc_template.AbstractSolution
-import com.github.chkypros.aoc_template.Point
+import com.github.chkypros.aoc_common.Point
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 import java.util.stream.Stream
@@ -93,13 +93,19 @@ class BeaconExclusionZone : AbstractSolution() {
         startingOffset: Pair<Int, Int>,
         step: Pair<Int, Int>
     ) {
-        var point = Point(sensor.position.row + startingOffset.first, sensor.position.column + startingOffset.second)
+        var point = Point(
+            sensor.position.row + startingOffset.first,
+            sensor.position.column + startingOffset.second
+        )
         for (i in 0..sensor.distance) {
             if (point.row in 0..searchRange
                 && point.column in 0..searchRange) {
                 points.add(point)
             }
-            point = Point(point.row + step.first, point.column + step.second)
+            point = Point(
+                point.row + step.first,
+                point.column + step.second
+            )
         }
     }
 

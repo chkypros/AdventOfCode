@@ -1,12 +1,12 @@
 package com.github.chkypros.aoc2021.day7;
 
-import com.github.chkypros.aoc_template.Utils;
+import com.github.chkypros.aoc_common.Utils;
 import org.junit.Test;
 
 import java.nio.file.Files;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
 
 public class TheTreacheryOfWhalesTest {
     private static final String SAMPLE_INPUT = "16,1,2,0,4,2,7,1,2,14";

@@ -4,7 +4,7 @@ import com.github.chkypros.aoc2021.day16.packet.BitsPacket;
 import com.github.chkypros.aoc2021.day16.packet.OperatorBitsPacket;
 import com.github.chkypros.aoc2021.day16.parser.BitsPacketParser;
 import com.github.chkypros.aoc_template.AbstractSolution;
-import com.github.chkypros.aoc_template.Utils;
+import com.github.chkypros.aoc_common.Utils;
 
 import java.util.stream.Stream;
 

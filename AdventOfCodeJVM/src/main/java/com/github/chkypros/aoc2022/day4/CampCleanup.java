@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day4;
 
 import com.github.chkypros.aoc_template.AbstractSolution;
-import com.github.chkypros.aoc_template.Pair;
+import com.github.chkypros.aoc_common.Pair;
 
 import java.util.function.IntFunction;
 import java.util.regex.Pattern;

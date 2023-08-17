@@ -4,8 +4,8 @@ import org.junit.Test;
 
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
-import static com.github.chkypros.aoc_template.TestUtils.getSampleInput;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.getSampleInput;
 
 
 public class GiantSquidTest {

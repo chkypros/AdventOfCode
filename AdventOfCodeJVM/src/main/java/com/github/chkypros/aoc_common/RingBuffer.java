@@ -1,4 +1,4 @@
-package com.github.chkypros.aoc_template;
+package com.github.chkypros.aoc_common;
 
 import java.util.ArrayList;
 import java.util.List;

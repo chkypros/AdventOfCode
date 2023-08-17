@@ -1,9 +1,9 @@
 package com.github.chkypros.aoc2022.day12
 
 import com.github.chkypros.aoc_template.AbstractSolution
-import com.github.chkypros.aoc_template.Dijkstra
-import com.github.chkypros.aoc_template.Node
-import com.github.chkypros.aoc_template.Point
+import com.github.chkypros.aoc_common.Dijkstra
+import com.github.chkypros.aoc_common.Node
+import com.github.chkypros.aoc_common.Point
 import java.util.function.BiPredicate
 import java.util.stream.Stream
 
@@ -17,14 +17,20 @@ class HillClimbingAlgorithm: AbstractSolution() {
 
     override fun solvePartTwo(stream: Stream<String>): Long {
         val graph = parseInput(stream) { nodeLetter: Char, neighbourLetter: Char -> nodeLetter <= neighbourLetter + 1 }
-        val dijkstra = Dijkstra(graph.nodes, graph.destination.position)
+        val dijkstra =
+            Dijkstra(graph.nodes, graph.destination.position)
         dijkstra.findShortestPaths()
 
         var minSteps = graph.map.size * graph.map[0].length + 1L
         for (i in 0 until graph.map.size) {
             for (j in 0 until graph.map[0].length) {
                 if (graph.map[i][j] == 'a' || graph.map[i][j] == 'S') {
-                    val stepsToNode = dijkstra.getDistanceOf(Point(i, j))
+                    val stepsToNode = dijkstra.getDistanceOf(
+                        Point(
+                            i,
+                            j
+                        )
+                    )
                     if (minSteps > stepsToNode) {
                         minSteps = stepsToNode
                     }
@@ -43,7 +49,11 @@ class HillClimbingAlgorithm: AbstractSolution() {
 
         for (i in 0 until map.size) {
             for (j in 0 until map[0].length) {
-                val node = Node.atPosition(Point(i, j), 1)
+                val node = Node.atPosition(
+                    Point(
+                        i,
+                        j
+                    ), 1)
                 graphInit[i][j] = node
 
                 if (map[i][j] == 'S') {

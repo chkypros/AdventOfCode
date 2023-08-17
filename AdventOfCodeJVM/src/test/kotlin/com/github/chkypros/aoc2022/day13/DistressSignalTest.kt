@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day13
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest
-import com.github.chkypros.aoc_template.TestUtils.checkAnswer
+import com.github.chkypros.aoc_common.TestUtils.checkAnswer
 import org.junit.Before
 import org.junit.Test
 import java.util.stream.Stream

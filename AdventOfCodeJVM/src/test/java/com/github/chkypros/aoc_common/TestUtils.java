@@ -1,10 +1,12 @@
-package com.github.chkypros.aoc_template;
+package com.github.chkypros.aoc_common;
+
+import com.github.chkypros.aoc_template.AbstractSolution;
 
 import java.nio.file.Files;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.Utils.getInputFilePath;
+import static com.github.chkypros.aoc_common.Utils.getInputFilePath;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 

@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day14
 
 import com.github.chkypros.aoc_template.AbstractSolution
-import com.github.chkypros.aoc_template.Point
+import com.github.chkypros.aoc_common.Point
 import java.util.stream.IntStream
 import java.util.stream.Stream
 

@@ -1,4 +1,6 @@
-package com.github.chkypros.aoc_template;
+package com.github.chkypros.aoc_common;
+
+import com.github.chkypros.aoc_common.RingBuffer;
 
 import org.junit.Before;
 import org.junit.Test;

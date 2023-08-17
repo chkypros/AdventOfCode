@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day6;
 
 import com.github.chkypros.aoc_template.AbstractSolution;
-import com.github.chkypros.aoc_template.RingBuffer;
+import com.github.chkypros.aoc_common.RingBuffer;
 
 import java.util.Objects;
 import java.util.stream.Stream;

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
 
 public class BinaryDiagnosticTest {
 

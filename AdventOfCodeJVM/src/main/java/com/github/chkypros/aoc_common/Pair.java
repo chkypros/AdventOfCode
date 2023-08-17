@@ -1,4 +1,4 @@
-package com.github.chkypros.aoc_template;
+package com.github.chkypros.aoc_common;
 
 public class Pair<F,S> {
     public final F first;

@@ -6,9 +6,9 @@ import java.nio.file.Files;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
-import static com.github.chkypros.aoc_template.TestUtils.getSampleInput;
-import static com.github.chkypros.aoc_template.Utils.getInputFilePath;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.getSampleInput;
+import static com.github.chkypros.aoc_common.Utils.getInputFilePath;
 
 public abstract class AbstractSolutionTest {
     protected AbstractSolution solution;

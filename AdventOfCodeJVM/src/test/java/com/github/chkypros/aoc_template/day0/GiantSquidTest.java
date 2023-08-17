@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.*;
+import static com.github.chkypros.aoc_common.TestUtils.*;
 
 public class GiantSquidTest {
     private final GiantSquid giantSquid = new GiantSquid();

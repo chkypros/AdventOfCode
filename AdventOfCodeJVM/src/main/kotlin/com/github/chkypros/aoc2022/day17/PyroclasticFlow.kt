@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day17
 
 import com.github.chkypros.aoc_template.AbstractSolution
-import com.github.chkypros.aoc_template.Point
+import com.github.chkypros.aoc_common.Point
 import java.util.stream.Stream
 import kotlin.math.max
 
@@ -33,7 +33,10 @@ class PyroclasticFlow : AbstractSolution() {
                 chamber.markStoppedRock(rockPosition, rockSequence.get())
 
                 maxHeight = max(maxHeight, rockPosition.row + 1)
-                rockPosition = Point(maxHeight + rockSequence.next().height + 2, 2)
+                rockPosition = Point(
+                    maxHeight + rockSequence.next().height + 2,
+                    2
+                )
             }
         }
 

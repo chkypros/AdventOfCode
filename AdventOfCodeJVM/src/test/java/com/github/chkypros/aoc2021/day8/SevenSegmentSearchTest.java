@@ -1,13 +1,13 @@
 package com.github.chkypros.aoc2021.day8;
 
-import com.github.chkypros.aoc_template.Utils;
+import com.github.chkypros.aoc_common.Utils;
 import org.junit.Test;
 
 import java.nio.file.Files;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
-import static com.github.chkypros.aoc_template.TestUtils.getSampleInput;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.getSampleInput;
 
 public class SevenSegmentSearchTest {
     private final SevenSegmentSearch sevenSegmentSearch = new SevenSegmentSearch();

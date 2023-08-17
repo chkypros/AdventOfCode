@@ -1,13 +1,13 @@
 package com.github.chkypros.aoc2021.day12;
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest;
-import com.github.chkypros.aoc_template.Utils;
+import com.github.chkypros.aoc_common.Utils;
 import org.junit.Test;
 
 import java.nio.file.Files;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_template.TestUtils.checkAnswer;
+import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
 
 public class PassagePathingTest extends AbstractSolutionTest {
     public PassagePathingTest() {

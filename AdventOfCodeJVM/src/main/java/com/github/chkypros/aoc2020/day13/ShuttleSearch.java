@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2020.day13;
 
 import com.github.chkypros.aoc_template.AbstractSolution;
-import com.github.chkypros.aoc_template.Pair;
+import com.github.chkypros.aoc_common.Pair;
 
 import java.util.ArrayList;
 import java.util.Arrays;

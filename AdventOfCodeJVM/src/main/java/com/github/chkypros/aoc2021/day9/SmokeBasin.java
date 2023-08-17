@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2021.day9;
 
 import com.github.chkypros.aoc_template.AbstractSolution;
-import com.github.chkypros.aoc_template.Point;
+import com.github.chkypros.aoc_common.Point;
 
 import java.util.ArrayList;
 import java.util.List;
