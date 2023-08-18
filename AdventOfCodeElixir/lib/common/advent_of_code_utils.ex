@@ -1,4 +1,6 @@
 defmodule AdventOfCodeUtils do
+  use ExUnit.Case
+
   @moduledoc false
 
   def get_input_file_lines(file_path, label \\ "") do
@@ -13,5 +15,28 @@ defmodule AdventOfCodeUtils do
     |> File.stream!()
     |> Stream.map(&String.trim_trailing/1)
     |> Enum.to_list()
+  end
+
+  def run_test(config, mode), do:
+    do_test(config[:file_path], config[:module_under_test], config[:expected_answer], mode)
+
+  defp do_test(file_path, module, expected_answer, :part_one) do
+    answer = file_path |> get_input_file_lines() |> module.solve_part_one()
+    assert answer == expected_answer[:part_one]
+  end
+
+  defp do_test(file_path, module, expected_answer, :part_two) do
+    answer = file_path |> get_input_file_lines() |> module.solve_part_two()
+    assert answer == expected_answer[:part_two]
+  end
+
+  defp do_test(file_path, module, expected_answer, :part_one_sample) do
+    answer = file_path |> get_input_file_lines("-sample") |> module.solve_part_one()
+    assert answer == expected_answer[:part_one_sample]
+  end
+
+  defp do_test(file_path, module, expected_answer, :part_two_sample) do
+    answer = file_path |> get_input_file_lines("-sample") |> module.solve_part_two()
+    assert answer == expected_answer[:part_two_sample]
   end
 end
