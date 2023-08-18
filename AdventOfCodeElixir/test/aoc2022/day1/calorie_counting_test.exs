@@ -13,8 +13,11 @@ defmodule CalorieCountingTest do
   ]
 
   test "solve part one", do: AdventOfCodeUtils.run_test(@test_configuration, :part_one)
+
   test "solve part two", do: AdventOfCodeUtils.run_test(@test_configuration, :part_two)
+
   test "solve part one sample", do: AdventOfCodeUtils.run_test(@test_configuration, :part_one_sample)
+
   test "solve part two sample", do: AdventOfCodeUtils.run_test(@test_configuration, :part_two_sample)
 
   test "solve for a single item", do:
