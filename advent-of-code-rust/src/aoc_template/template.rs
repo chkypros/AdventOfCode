@@ -1,10 +1,10 @@
 use crate::prelude::*;
 
-pub struct CalorieCounting {
+pub struct Template {
 
 }
 
-impl Solution for CalorieCounting {
+impl Solution for Template {
 
     fn solve_part_one(&self, input_content: &String) -> String {
         input_content.lines().count().to_string()

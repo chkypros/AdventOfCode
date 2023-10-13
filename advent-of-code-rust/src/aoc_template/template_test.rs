@@ -2,14 +2,14 @@
 mod tests {
     use rstest::{fixture, rstest};
     use crate::prelude::*;
-    use super::super::calorie_counting::*;
+    use super::super::template::*;
 
-    const PART_ONE_ANSWER: &'static str = "24000";
-    const PART_TWO_ANSWER: &'static str = "45000";
+    const PART_ONE_ANSWER: &'static str = "answer1";
+    const PART_TWO_ANSWER: &'static str = "answer2";
 
     #[fixture]
     fn solution() -> impl Solution {
-        CalorieCounting {}
+        Template {}
     }
 
     #[fixture]
