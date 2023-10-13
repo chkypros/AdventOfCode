@@ -1,2 +1,5 @@
-mod advent_of_code_utils;
-pub use advent_of_code_utils::*;
+mod utils;
+mod solution;
+
+pub use utils::*;
+pub use solution::*;
