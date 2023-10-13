@@ -2,6 +2,10 @@ use crate::prelude::*;
 
 pub struct CalorieCounting {}
 impl Solution for CalorieCounting {
+    fn solve(&self) {
+        self.solve_for_file(file!())
+    }
+
     fn solve_part_one(&self, input_content: &String) -> String {
         input_content.lines().count().to_string()
     }
