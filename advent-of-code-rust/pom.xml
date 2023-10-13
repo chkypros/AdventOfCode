@@ -39,8 +39,6 @@
                         </goals>
                         <configuration>
                             <path>.</path>
-                            <copyTo>${project.build.directory}/classes/rust/libs</copyTo>
-                            <copyWithPlatformDir>true</copyWithPlatformDir>
                         </configuration>
                     </execution>
                 </executions>
