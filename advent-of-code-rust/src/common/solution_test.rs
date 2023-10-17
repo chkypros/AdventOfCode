@@ -1,7 +1,7 @@
 use crate::prelude::*;
 
-pub fn solve_all(filepath: &str, solution: impl Solution) {
-    let input_content = get_input(filepath);
+pub fn solve_all(filepath: &str, solution: impl solution::Solution) {
+    let input_content = utils::get_input(filepath);
 
     let part_one_answer = solution.solve_part_one(&input_content);
     let part_two_answer = solution.solve_part_two(&input_content);

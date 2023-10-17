@@ -4,7 +4,7 @@ pub struct CalorieCounting {
 
 }
 
-impl Solution for CalorieCounting {
+impl solution::Solution for CalorieCounting {
 
     fn solve_part_one(&self, input_content: &String) -> String {
         solve_for_top(input_content, 1)
