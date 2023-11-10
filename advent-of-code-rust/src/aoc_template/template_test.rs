@@ -8,27 +8,27 @@ mod tests {
     const PART_TWO_ANSWER: &'static str = "answer2";
 
     #[fixture]
-    fn solution() -> impl Solution {
+    fn implementation() -> impl solution::Solution {
         Template {}
     }
 
     #[fixture]
     fn sample_input_content() -> String {
-        get_labelled_input(file!(), "-sample")
+        utils::get_labelled_input(file!(), "-sample")
     }
 
     #[rstest]
-    fn test_solve(solution: impl Solution) {
-        solve_all(file!(), solution);
+    fn test_solve(implementation: impl solution::Solution) {
+        solution_test::solve_all(file!(), implementation);
     }
 
     #[rstest]
-    fn test_solve_part_one(solution: impl Solution, sample_input_content: String) {
-        assert_eq!(solution.solve_part_one(&sample_input_content), PART_ONE_ANSWER)
+    fn test_solve_part_one(implementation: impl solution::Solution, sample_input_content: String) {
+        assert_eq!(implementation.solve_part_one(&sample_input_content), PART_ONE_ANSWER)
     }
 
     #[rstest]
-    fn test_solve_part_two(solution: impl Solution, sample_input_content: String) {
-        assert_eq!(solution.solve_part_two(&sample_input_content), PART_TWO_ANSWER)
+    fn test_solve_part_two(implementation: impl solution::Solution, sample_input_content: String) {
+        assert_eq!(implementation.solve_part_two(&sample_input_content), PART_TWO_ANSWER)
     }
 }
