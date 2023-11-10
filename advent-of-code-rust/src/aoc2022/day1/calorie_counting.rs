@@ -15,8 +15,18 @@ impl solution::Solution for CalorieCounting {
     }
 }
 
-fn solve_for_top(_input_content: &String, top_elves_to_find: i32) -> String {
-    // TODO Implement
-    let result = if top_elves_to_find == 1 {"24000"} else {"45000"};
-    result.to_string()
+fn solve_for_top(input_content: &String, _top_elves_to_find: i32) -> String {
+    let max = input_content.split("\n\n")
+        .filter(|s| !s.is_empty())
+        .map(|x| calculate_elf_sum(x.to_string()))
+        .max()
+        .unwrap();
+    max.to_string()
+}
+
+fn calculate_elf_sum(elf_content: String) -> u32 {
+    elf_content.split('\n')
+        .filter(|s| !s.is_empty())
+        .map(|x| x.parse::<u32>().unwrap())
+        .sum()
 }

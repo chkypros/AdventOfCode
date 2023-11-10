@@ -31,4 +31,28 @@ mod tests {
     fn test_solve_part_two(implementation: impl solution::Solution, sample_input_content: String) {
         assert_eq!(implementation.solve_part_two(&sample_input_content), PART_TWO_ANSWER)
     }
+
+    #[rstest]
+    fn test_one_elf_one_food(implementation: impl solution::Solution) {
+        let input = "1000".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "1000")
+    }
+
+    #[rstest]
+    fn test_one_elf_many_foods(implementation: impl solution::Solution) {
+        let input = "1000\n2000".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "3000")
+    }
+
+    #[rstest]
+    fn test_many_elfs_one_food_each(implementation: impl solution::Solution) {
+        let input = "1000\n\n2000\n\n3000".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "3000")
+    }
+
+    #[rstest]
+    fn test_many_elfs_many_foods_each(implementation: impl solution::Solution) {
+        let input = "1000\n1000\n\n10000\n\n2000\n3000".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "10000")
+    }
 }
