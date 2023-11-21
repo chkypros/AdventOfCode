@@ -15,16 +15,22 @@ impl solution::Solution for CalorieCounting {
     }
 }
 
-fn solve_for_top(input_content: &String, _top_elves_to_find: i32) -> String {
-    let max = input_content.split("\n\n")
+fn solve_for_top(input_content: &String, top_elves_to_find: usize) -> String {
+    let mut calories_per_elf = input_content
+        .split("\n\n")
         .filter(|s| !s.is_empty())
-        .map(|x| calculate_elf_sum(x.to_string()))
-        .max()
-        .unwrap();
-    max.to_string()
+        .map(calculate_elf_sum)
+        .collect::<Vec<u32>>();
+
+    calories_per_elf.sort_by(|a, b| b.cmp(a));
+    calories_per_elf
+        .iter()
+        .take(top_elves_to_find)
+        .sum::<u32>()
+        .to_string()
 }
 
-fn calculate_elf_sum(elf_content: String) -> u32 {
+fn calculate_elf_sum(elf_content: &str) -> u32 {
     elf_content.split('\n')
         .filter(|s| !s.is_empty())
         .map(|x| x.parse::<u32>().unwrap())
