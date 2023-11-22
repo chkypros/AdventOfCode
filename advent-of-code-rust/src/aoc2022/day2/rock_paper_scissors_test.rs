@@ -37,4 +37,10 @@ mod tests {
         let input = "A Y".to_string();
         assert_eq!(implementation.solve_part_one(&input), "8")
     }
+
+    #[rstest]
+    fn test_solve_single_round_win_rock(implementation: impl solution::Solution) {
+        let input = "C X".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "7")
+    }
 }
