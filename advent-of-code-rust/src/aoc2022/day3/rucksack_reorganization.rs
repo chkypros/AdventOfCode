@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use itertools::{Chunk, Itertools};
 use crate::prelude::*;
 
 pub struct RucksackReorganization {
@@ -18,7 +19,14 @@ impl solution::Solution for RucksackReorganization {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        input_content.lines().next().unwrap().to_string()
+        input_content.lines()
+            .filter(|line| !line.is_empty())
+            .chunks(3)
+            .into_iter()
+            .map(find_badge_item)
+            .map(calculate_item_priority)
+            .sum::<i32>()
+            .to_string()
     }
 }
 
@@ -45,4 +53,9 @@ fn calculate_item_priority(item: char) -> i32 {
         'A'..='Z' => 27 + (item as i32 - 'A' as i32),
         _ => panic!("Invalid item found!")
     }
+}
+
+fn find_badge_item(chunk: Chunk<&str>) -> char {
+    let _items: HashSet<char> = chunk.into();
+
 }
