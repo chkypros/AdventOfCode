@@ -8,7 +8,8 @@ pub struct RucksackReorganization {
 impl solution::Solution for RucksackReorganization {
 
     fn solve_part_one(&self, input_content: &String) -> String {
-        return input_content.split("\n")
+        return input_content.lines()
+            .filter(|line| !line.is_empty())
             .map(separate_compartments)
             .map(find_common_item)
             .map(calculate_item_priority)
@@ -31,10 +32,17 @@ fn separate_compartments(input_content: &str) -> (HashSet<char>, HashSet<char>) 
 
 fn find_common_item(compartments: (HashSet<char>, HashSet<char>)) -> char {
     let mut intersection = compartments.0.intersection(&compartments.1);
-    let Some(item) = intersection.next() else { panic!("Could not find intersection") };
+    let Some(item) = intersection.next()
+        else {
+            panic!("Could not find intersection")
+        };
     item.to_owned()
 }
 
-fn calculate_item_priority(_item: char) -> i32 {
-    todo!()
+fn calculate_item_priority(item: char) -> i32 {
+    return match item {
+        'a'..='z' => 1 + (item as i32 - 'a' as i32),
+        'A'..='Z' => 27 + (item as i32 - 'A' as i32),
+        _ => panic!("Invalid item found!")
+    }
 }

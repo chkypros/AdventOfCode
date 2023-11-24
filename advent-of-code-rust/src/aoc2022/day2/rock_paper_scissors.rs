@@ -10,7 +10,7 @@ pub struct RockPaperScissors {
 impl solution::Solution for RockPaperScissors {
 
     fn solve_part_one(&self, input_content: &String) -> String {
-        input_content.split("\n")
+        input_content.lines()
             .filter(|line| !line.is_empty())
             .map(parse_pair)
             .map(convert_to_shapes_pair)
@@ -20,7 +20,7 @@ impl solution::Solution for RockPaperScissors {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        input_content.split("\n")
+        input_content.lines()
             .filter(|line| !line.is_empty())
             .map(calculate_pair)
             .map(evaluate_score)

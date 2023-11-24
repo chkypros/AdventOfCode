@@ -43,4 +43,10 @@ mod tests {
         let input = "AA".to_string();
         assert_eq!(implementation.solve_part_one(&input), "27")
     }
+
+    #[rstest]
+    fn test_multiple_item_in_each_compartment(implementation: impl solution::Solution) {
+        let input = "aa\nBB".to_string();
+        assert_eq!(implementation.solve_part_one(&input), "29")
+    }
 }
