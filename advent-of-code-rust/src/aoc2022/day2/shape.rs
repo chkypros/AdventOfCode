@@ -10,12 +10,19 @@ impl Shape {
         }
     }
 
-    pub fn beats(&self, other: &Shape) -> bool {
-        match (&self, other) {
-            (Shape::ROCK, Shape::SCISSORS)
-                | (Shape::PAPER, Shape::ROCK)
-                | (Shape::SCISSORS, Shape::PAPER) => true,
-            _ => false
+    pub fn wins_over(&self) -> Shape {
+        return match self {
+            Shape::ROCK => Shape::SCISSORS,
+            Shape::PAPER => Shape::ROCK,
+            Shape::SCISSORS => Shape::PAPER,
+        }
+    }
+
+    pub fn loses_to(&self) -> Shape {
+        return match self {
+            Shape::ROCK => Shape::PAPER,
+            Shape::PAPER => Shape::SCISSORS,
+            Shape::SCISSORS => Shape::ROCK,
         }
     }
 }

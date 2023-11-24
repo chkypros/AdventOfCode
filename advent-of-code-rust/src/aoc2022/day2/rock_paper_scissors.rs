@@ -41,16 +41,17 @@ fn convert_to_shapes_pair(pair_input: (OpponentInput, PlayerInput)) -> (Shape, S
 }
 
 fn calculate_pair(pair_content: &str) -> (Shape, Shape) {
-    let Some((part1, _part2)) = pair_content.split_once(" ") else { panic!("Invalid pair: {pair_content}") };
-    let opponent_input = OpponentInput::from(part1);
-    // match part2 {
-    //     "X" => ,
-    //     "Y" => ,
-    //     "Z" => ,
-    //     _ => panic!("Invalid outcome: {part2}")
-    // }
-    // (opponent_input, player_input)
-    (opponent_input.into(), Shape::PAPER)
+    let Some((part1, part2)) = pair_content.split_once(" ") else { panic!("Invalid pair: {pair_content}") };
+    let opponent_shape: Shape = OpponentInput::from(part1).into();
+
+    let player_shape: Shape = match part2 {
+        "X" => opponent_shape.wins_over(),
+        "Y" => opponent_shape,
+        "Z" => opponent_shape.loses_to(),
+        _ => panic!("Invalid outcome: {part2}"),
+    };
+
+    (opponent_shape, player_shape)
 }
 
 fn evaluate_score(shape_pair: (Shape, Shape)) -> i32 {
@@ -63,7 +64,7 @@ fn outcome_score(shape_pair: (Shape, Shape)) -> i32 {
 
     if opponent_shape == player_shape {
         3
-    } else if opponent_shape.beats(player_shape) {
+    } else if &opponent_shape.wins_over() == player_shape {
         0
     } else {
         6
