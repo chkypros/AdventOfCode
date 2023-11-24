@@ -21,19 +21,18 @@ impl solution::Solution for RucksackReorganization {
     }
 }
 
-fn separate_compartments(compartments: &str) -> (HashSet<&char>, HashSet<&char>) {
-    let items:Vec<char> = compartments.chars().collect();
-    let half_index = items.len() / 2;
-    let items = items.split_at(half_index);
-    let items_compartment1 = HashSet::from_iter(items.0.iter());
-    let items_compartment2 = HashSet::from_iter(items.1.iter());
+fn separate_compartments(input_content: &str) -> (HashSet<char>, HashSet<char>) {
+    let all_items_content:Vec<char> = input_content.chars().collect();
+    let half_index = all_items_content.len() / 2;
+    let items_compartment1 = all_items_content.iter().take(half_index).map(&char::to_owned).collect();
+    let items_compartment2 = all_items_content.iter().skip(half_index).map(&char::to_owned).collect();
     (items_compartment1, items_compartment2)
 }
 
-fn find_common_item<'a>(_compartments: (HashSet<&'a char>, HashSet<&'a char>)) -> &'a char {
+fn find_common_item(_compartments: (HashSet<char>, HashSet<char>)) -> char {
     todo!()
 }
 
-fn calculate_item_priority(_item: &char) -> i32 {
+fn calculate_item_priority(_item: char) -> i32 {
     todo!()
 }
