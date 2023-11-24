@@ -29,8 +29,10 @@ fn separate_compartments(input_content: &str) -> (HashSet<char>, HashSet<char>) 
     (items_compartment1, items_compartment2)
 }
 
-fn find_common_item(_compartments: (HashSet<char>, HashSet<char>)) -> char {
-    todo!()
+fn find_common_item(compartments: (HashSet<char>, HashSet<char>)) -> char {
+    let mut intersection = compartments.0.intersection(&compartments.1);
+    let Some(item) = intersection.next() else { panic!("Could not find intersection") };
+    item.to_owned()
 }
 
 fn calculate_item_priority(_item: char) -> i32 {
