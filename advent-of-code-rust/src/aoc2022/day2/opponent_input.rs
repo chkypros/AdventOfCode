@@ -1,6 +1,6 @@
 use crate::aoc2022::day2::shape::Shape;
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub enum OpponentInput { A, B, C }
 
 impl Into<Shape> for OpponentInput {
