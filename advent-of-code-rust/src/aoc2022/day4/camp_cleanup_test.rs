@@ -5,7 +5,7 @@ mod tests {
     use super::super::camp_cleanup::*;
 
     const PART_ONE_ANSWER: &'static str = "2";
-    const PART_TWO_ANSWER: &'static str = "answer2";
+    const PART_TWO_ANSWER: &'static str = "4";
 
     #[fixture]
     fn implementation() -> impl solution::Solution {
@@ -36,5 +36,11 @@ mod tests {
     fn test_p1_no_overlap(implementation: impl solution::Solution) {
         let input = "1-2,3-4".to_string();
         assert_eq!(implementation.solve_part_one(&input), "0")
+    }
+
+    #[rstest]
+    fn test_p2_some_overlap(implementation: impl solution::Solution) {
+        let input = "1-3,3-4".to_string();
+        assert_eq!(implementation.solve_part_two(&input), "1")
     }
 }

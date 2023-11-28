@@ -15,7 +15,11 @@ impl solution::Solution for CampCleanup {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        input_content.lines().next().unwrap().to_string()
+        input_content.lines()
+            .map(parse_sections)
+            .filter(|(first, second)| first.overlaps(second))
+            .count()
+            .to_string()
     }
 }
 
