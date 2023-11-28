@@ -4,9 +4,7 @@ use itertools::Itertools;
 
 use crate::prelude::*;
 
-pub struct RucksackReorganization {
-
-}
+pub struct RucksackReorganization;
 
 impl solution::Solution for RucksackReorganization {
 

@@ -1,8 +1,6 @@
 use crate::prelude::*;
 
-pub struct Template {
-
-}
+pub struct Template;
 
 impl solution::Solution for Template {
 

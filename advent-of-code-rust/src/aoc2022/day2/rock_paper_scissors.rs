@@ -3,9 +3,7 @@ use crate::aoc2022::day2::player_input::PlayerInput;
 use crate::aoc2022::day2::shape::Shape;
 use crate::prelude::*;
 
-pub struct RockPaperScissors {
-
-}
+pub struct RockPaperScissors;
 
 impl solution::Solution for RockPaperScissors {
 

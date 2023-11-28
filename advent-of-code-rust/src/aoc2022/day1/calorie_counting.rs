@@ -1,8 +1,6 @@
 use crate::prelude::*;
 
-pub struct CalorieCounting {
-
-}
+pub struct CalorieCounting;
 
 impl solution::Solution for CalorieCounting {
 
