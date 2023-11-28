@@ -28,7 +28,7 @@ impl solution::Solution for RucksackReorganization {
         let mut sum = 0;
         for chunk in non_empty_line_chunks.into_iter() {
             let lines: Vec<&str> = chunk.collect();
-            let badge_item = find_badge_item(lines);
+            let badge_item = find_badge_item(&lines);
             sum += calculate_item_priority(badge_item);
         }
 
@@ -63,19 +63,20 @@ fn calculate_item_priority(item: char) -> i32 {
     }
 }
 
-fn find_badge_item(lines: Vec<&str>) -> char {
-    let bags: Vec<HashSet<char>> = lines.into_iter()
+fn find_badge_item(lines: &Vec<&str>) -> char {
+    let Some(intersection) = lines.into_iter()
         .map(|l| l.chars().collect())
-        .collect();
+        .reduce(find_intersection)
+        else { panic!("Could not find intersection for {lines:?}")};
 
-    let mut intersection = bags[0].clone();
-    for i in 1..bags.len() {
-        intersection = intersection
-            .intersection(&bags[i])
-            .cloned()
-            .collect();
-    }
-
-    let Some(badge) = intersection.iter().next() else { panic!("Could not find intersection for {bags:?}")};
+    let Some(badge) = intersection.iter().next() else { panic!("Could not find intersection for {lines:?}")};
     badge.to_owned()
+}
+
+fn find_intersection(reduced: HashSet<char>, current: HashSet<char>) -> HashSet<char> {
+    if reduced.is_empty() {
+        current
+    } else {
+        reduced.intersection(&current).cloned().collect()
+    }
 }
