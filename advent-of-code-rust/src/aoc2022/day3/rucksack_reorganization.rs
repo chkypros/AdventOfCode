@@ -21,18 +21,15 @@ impl solution::Solution for RucksackReorganization {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        let non_empty_line_chunks = input_content.lines()
+        input_content.lines()
             .filter(|line| !line.is_empty())
-            .chunks(3);
-
-        let mut sum = 0;
-        for chunk in non_empty_line_chunks.into_iter() {
-            let lines: Vec<&str> = chunk.collect();
-            let badge_item = find_badge_item(&lines);
-            sum += calculate_item_priority(badge_item);
-        }
-
-        sum.to_string()
+            .chunks(3)
+            .into_iter()
+            .map(Iterator::collect)
+            .map(|bags| find_badge_item(&bags))
+            .map(calculate_item_priority)
+            .sum::<i32>()
+            .to_string()
     }
 }
 
