@@ -1,11 +1,13 @@
 #[cfg(test)]
 mod tests {
     use rstest::{fixture, rstest};
+
     use crate::prelude::*;
+
     use super::super::trebuchet::*;
 
     const PART_ONE_ANSWER: &'static str = "142";
-    const PART_TWO_ANSWER: &'static str = "answer2";
+    const PART_TWO_ANSWER: &'static str = "281";
 
     #[fixture]
     fn implementation() -> impl solution::Solution {
@@ -53,5 +55,23 @@ mod tests {
     fn test_p1_multiple_entries(implementation: impl solution::Solution) {
         let input = "1abc2\nab1cd".to_string();
         assert_eq!(implementation.solve_part_one(&input), "23")
+    }
+
+    #[rstest]
+    fn test_p2_two_digits(implementation: impl solution::Solution) {
+        let input = "1abc2".to_string();
+        assert_eq!(implementation.solve_part_two(&input), "12")
+    }
+
+    #[rstest]
+    fn test_p2_mixed_digits(implementation: impl solution::Solution) {
+        let input = "oneabc2".to_string();
+        assert_eq!(implementation.solve_part_two(&input), "12")
+    }
+
+    #[rstest]
+    fn test_p2_no_digits(implementation: impl solution::Solution) {
+        let input = "oneabcthree".to_string();
+        assert_eq!(implementation.solve_part_two(&input), "13")
     }
 }
