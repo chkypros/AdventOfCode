@@ -8,7 +8,7 @@ pub struct Game {
 }
 
 impl Game {
-    pub fn is_game_possible(self: &Self) -> bool {
+    pub fn is_game_possible(&self) -> bool {
         self.reveals.iter().all(Reveal::is_reveal_possible)
     }
 }

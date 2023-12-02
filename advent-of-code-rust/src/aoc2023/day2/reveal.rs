@@ -10,7 +10,7 @@ pub struct Reveal {
 }
 
 impl Reveal {
-    pub fn is_reveal_possible(self: &Self) -> bool {
+    pub fn is_reveal_possible(&self) -> bool {
         self.reds <= 12
             && self.greens <= 13
             && self.blues <= 14
