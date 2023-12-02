@@ -4,9 +4,9 @@ const PATTERN: &'static str = r"(?<color1>\d+ \w+)(, (?<color2>\d+ \w+))?(, (?<c
 
 #[derive(Debug)]
 pub struct Reveal {
-    reds: i32,
-    blues: i32,
-    greens: i32,
+    pub reds: i32,
+    pub blues: i32,
+    pub greens: i32,
 }
 
 impl Reveal {

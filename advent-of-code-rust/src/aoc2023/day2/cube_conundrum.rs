@@ -15,7 +15,12 @@ impl solution::Solution for CubeConundrum {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        input_content.lines().map(&str::len).max().unwrap().to_string()
+        input_content.lines()
+            .map(parse_input)
+            .map(find_min_set)
+            .map(calculate_power)
+            .sum::<i32>()
+            .to_string()
     }
 }
 
@@ -29,4 +34,17 @@ fn parse_input(line: &str) -> Game {
         .collect();
 
     Game { id: game_id, reveals }
+}
+
+fn find_min_set(game: Game) -> (i32, i32, i32) {
+    let reveals = game.reveals;
+    let max_reds = reveals.iter().map(|reveal| reveal.reds).max().expect("Should have reds");
+    let max_greens = reveals.iter().map(|reveal| reveal.greens).max().expect("Should have greens");
+    let max_blues = reveals.iter().map(|reveal| reveal.blues).max().expect("Should have blues");
+
+    (max_reds, max_greens, max_blues)
+}
+
+fn calculate_power((reds, greens, blues): (i32, i32, i32)) -> i32 {
+    reds * greens * blues
 }

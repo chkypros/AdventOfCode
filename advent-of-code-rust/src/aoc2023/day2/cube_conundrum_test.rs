@@ -5,7 +5,7 @@ mod tests {
     use super::super::cube_conundrum::*;
 
     const PART_ONE_ANSWER: &'static str = "8";
-    const PART_TWO_ANSWER: &'static str = "answer2";
+    const PART_TWO_ANSWER: &'static str = "2286";
 
     #[fixture]
     fn implementation() -> impl solution::Solution {
