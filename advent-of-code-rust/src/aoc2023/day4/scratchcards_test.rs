@@ -5,7 +5,7 @@ mod tests {
     use super::super::scratchcards::*;
 
     const PART_ONE_ANSWER: &'static str = "13";
-    const PART_TWO_ANSWER: &'static str = "answer2";
+    const PART_TWO_ANSWER: &'static str = "30";
 
     #[fixture]
     fn implementation() -> impl solution::Solution {
@@ -36,5 +36,11 @@ mod tests {
     fn test_p1_no_winning(implementation: impl solution::Solution) {
         let input = "Card 1: 1 2 | 3 4".to_string();
         assert_eq!(implementation.solve_part_one(&input), "0")
+    }
+    
+    #[rstest]
+    fn test_p2_one_winning(implementation: impl solution::Solution) {
+        let input = "Card 1: 1 2 | 2 4\nCard 2: 8 9 | 1 2".to_string();
+        assert_eq!(implementation.solve_part_two(&input), "3")
     }
 }
