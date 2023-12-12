@@ -5,7 +5,7 @@ mod tests {
     use super::super::if_you_give_a_seed_a_fertilizer::*;
 
     const PART_ONE_ANSWER: &'static str = "35";
-    const PART_TWO_ANSWER: &'static str = "answer2";
+    const PART_TWO_ANSWER: &'static str = "46";
 
     #[fixture]
     fn implementation() -> impl solution::Solution {

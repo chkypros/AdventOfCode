@@ -1,4 +1,5 @@
 use std::collections::{HashMap, LinkedList};
+use itertools::Itertools;
 use crate::aoc2023::day5::correlation_map;
 
 use crate::aoc2023::day5::correlation_map::CorrelationMap;
@@ -29,7 +30,26 @@ impl solution::Solution for IfYouGiveASeedAFertilizer {
     }
 
     fn solve_part_two(&self, input_content: &String) -> String {
-        input_content.lines().map(&str::len).max().unwrap().to_string()
+        let (seeds_line, map_lines) = input_content.split_once("\n\n").expect("Should have seeds line");
+
+        let seeds = seeds_line
+            .split_once("seeds: ")
+            .expect("First line should be the seeds mapping")
+            .1
+            .split(" ")
+            .map(|number| number.parse::<u64>().expect("Should be a valid number"))
+            .tuples()
+            .flat_map(|(start, length)| (start..start+length))
+            .collect::<LinkedList<u64>>();
+
+        let correlation_maps: HashMap<&str, CorrelationMap> = setup_correlation_maps(map_lines);
+
+        seeds
+            .iter()
+            .map(|seed| map_to_location(*seed, &correlation_maps))
+            .min()
+            .expect("Should have at least one location")
+            .to_string()
     }
 }
 
