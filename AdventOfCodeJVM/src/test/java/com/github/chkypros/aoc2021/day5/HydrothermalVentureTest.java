@@ -1,35 +1,16 @@
 package com.github.chkypros.aoc2021.day5;
 
-import org.junit.Test;
+import com.github.chkypros.aoc_template.AbstractSolutionTest;
 
-import java.util.stream.Stream;
+import org.junit.Before;
 
-import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
-import static com.github.chkypros.aoc_common.TestUtils.getSampleInput;
+public class HydrothermalVentureTest extends AbstractSolutionTest {
 
-public class HydrothermalVentureTest {
-    private final HydrothermalVenture hydrothermalVenture = new HydrothermalVenture();
+    @Before
+    public void setUp() throws Exception {
+        this.solution = new HydrothermalVenture();
 
-    @Test
-    public void solvePartOneSample() throws Exception {
-        Stream<String> stream = getSampleInput(this);
-
-        final Long answer = hydrothermalVenture.solvePartOne(stream);
-
-        checkAnswer(5L, answer);
-    }
-
-    @Test
-    public void solvePartTwoSample() throws Exception {
-        Stream<String> stream = getSampleInput(this);
-
-        final var answer = hydrothermalVenture.solvePartTwo(stream);
-
-        checkAnswer(12L, answer);
-    }
-
-    @Test
-    public void solve() throws Exception {
-        hydrothermalVenture.solve();
+        this.expectedAnswerPartOneSample = 5L;
+        this.expectedAnswerPartTwoSample = 12L;
     }
 }

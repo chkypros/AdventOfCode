@@ -2,8 +2,10 @@ package com.github.chkypros.aoc_common;
 
 import java.math.BigInteger;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Utils {
@@ -24,7 +26,8 @@ public class Utils {
         final String event = packageName.substring(secondToLastIndexOfPeriod + 1, lastIndexOfPeriod);
 
         final String resource = event + "/" + day + "/aoc-" + day + label + "-input.txt";
-        return Paths.get(ClassLoader.getSystemResource(resource).toURI());
+        URL inputFile = Objects.requireNonNull(ClassLoader.getSystemResource(resource), "Input file not found: " + resource);
+        return Paths.get(inputFile.toURI());
     }
 
     public static String hexToBinary(String hexadecimal) {

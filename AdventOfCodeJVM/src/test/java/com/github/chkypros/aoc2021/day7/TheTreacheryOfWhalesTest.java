@@ -1,61 +1,31 @@
 package com.github.chkypros.aoc2021.day7;
 
-import com.github.chkypros.aoc_common.Utils;
+import com.github.chkypros.aoc_template.AbstractSolutionTest;
+
+import org.junit.Before;
 import org.junit.Test;
 
-import java.nio.file.Files;
 import java.util.stream.Stream;
 
-import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
-
-public class TheTreacheryOfWhalesTest {
+public class TheTreacheryOfWhalesTest extends AbstractSolutionTest {
     private static final String SAMPLE_INPUT = "16,1,2,0,4,2,7,1,2,14";
 
+    @Before
+    public void setUp() throws Exception {
+        this.solution = new TheTreacheryOfWhales();
 
-    @Test
-    public void partOneSample() {
-        final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
-        final Stream<String> stream = getSampleInput();
-
-        final Long answer = theTreacheryOfWhales.solvePartOne(stream);
-
-        checkAnswer(37L, answer);
+        this.expectedAnswerPartOne = 349769L;
+        this.expectedAnswerPartTwo = 99540554L;
     }
 
     @Test
-    public void partOneInput() throws Exception {
-        final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
-        final Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
-
-        final Long answer = theTreacheryOfWhales.solvePartOne(stream);
-
-        checkAnswer(349769L, answer);
+    public void solvePartOneSample() {
+        solvePartOne(37L, getSampleInput());
     }
 
     @Test
-    public void partTwoSample() {
-        final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
-        final Stream<String> stream = getSampleInput();
-
-        final var answer = theTreacheryOfWhales.solvePartTwo(stream);
-
-        checkAnswer(168L, answer);
-    }
-
-    @Test
-    public void partTwoInput() throws Exception {
-        final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
-        final Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
-
-        final var answer = theTreacheryOfWhales.solvePartTwo(stream);
-
-        checkAnswer(99540554L, answer);
-    }
-
-    @Test
-    public void solve() throws Exception {
-        final TheTreacheryOfWhales theTreacheryOfWhales = new TheTreacheryOfWhales();
-        theTreacheryOfWhales.solve();
+    public void solvePartTwoSample() {
+        solvePartTwo(168L, getSampleInput());
     }
 
     private Stream<String> getSampleInput() {

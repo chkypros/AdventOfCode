@@ -1,14 +1,22 @@
 package com.github.chkypros.aoc2021.day6;
 
-import com.github.chkypros.aoc_common.Utils;
+import com.github.chkypros.aoc_template.AbstractSolutionTest;
+
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import java.nio.file.Files;
 import java.util.stream.Stream;
 
 import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
 
-public class LanternfishTest {
+public class LanternfishTest extends AbstractSolutionTest {
+
+    @Before
+    public void setUp() throws Exception {
+        this.expectedAnswerPartOne = 349549L;
+        this.expectedAnswerPartTwo = 1589590444365L;
+    }
 
     @Test
     public void solvePartOneSample_18days() {
@@ -52,15 +60,20 @@ public class LanternfishTest {
 
     @Test
     public void solvePartOne() throws Exception {
-        Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
-        final Long answer = new Lanternfish(80).solvePartOne(stream);
-        System.out.println("answer = " + answer);
+        this.solution = new Lanternfish(80);
+        super.solvePartOne();
     }
 
     @Test
     public void solvePartTwo() throws Exception {
-        Stream<String> stream = Files.lines(Utils.getInputFilePath(this));
-        final var answer = new Lanternfish(256).solvePartTwo(stream);
-        System.out.println("answer = " + answer);
+        this.solution = new Lanternfish(256);
+        super.solvePartTwo();
+    }
+
+    @Test
+    @Ignore("Each part needs separate initialization")
+    @Override
+    public void solve() throws Exception {
+        throw new UnsupportedOperationException();
     }
 }

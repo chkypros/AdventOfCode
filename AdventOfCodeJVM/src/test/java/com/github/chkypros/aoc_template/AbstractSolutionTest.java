@@ -1,14 +1,13 @@
 package com.github.chkypros.aoc_template;
 
+import com.github.chkypros.aoc_common.TestUtils;
+
 import org.junit.Test;
 
-import java.nio.file.Files;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
 import static com.github.chkypros.aoc_common.TestUtils.checkAnswer;
-import static com.github.chkypros.aoc_common.TestUtils.getSampleInput;
-import static com.github.chkypros.aoc_common.Utils.getInputFilePath;
 import static org.junit.Assume.assumeNotNull;
 
 public abstract class AbstractSolutionTest {
@@ -33,13 +32,13 @@ public abstract class AbstractSolutionTest {
     @Test
     public void solvePartOne() throws Exception {
         assumeNotNull(expectedAnswerPartOne);
-        solvePartOne(expectedAnswerPartOne, Files.lines(getInputFilePath(solution)));
+        solvePartOne(expectedAnswerPartOne, getInput(solution));
     }
 
     @Test
     public void solvePartTwo() throws Exception {
         assumeNotNull(expectedAnswerPartTwo);
-        solvePartTwo(expectedAnswerPartTwo, Files.lines(getInputFilePath(solution)));
+        solvePartTwo(expectedAnswerPartTwo, getInput(solution));
     }
 
     public void solvePartOne(Object expectedAnswer, Stream<String> stream) {
@@ -50,13 +49,21 @@ public abstract class AbstractSolutionTest {
         solvePart(expectedAnswer, stream, AbstractSolution::solvePartTwo);
     }
 
-    private void solvePart(Object expectedAnswer, Stream<String> stream, BiFunction<AbstractSolution, Stream<String>, Object> solvePartTwo) {
-        final Object answer = solvePartTwo.apply(solution, stream);
+    private void solvePart(Object expectedAnswer, Stream<String> stream, BiFunction<AbstractSolution, Stream<String>, Object> partSolution) {
+        final Object answer = partSolution.apply(solution, stream);
         checkAnswer(expectedAnswer, answer);
     }
 
     @Test(timeout = 180_000)
     public void solve() throws Exception {
         solution.solve();
+    }
+
+    private static Stream<String> getSampleInput(final Object object) throws Exception {
+        return TestUtils.getLabeledInput(object, "-sample");
+    }
+
+    private static Stream<String> getInput(final Object object) throws Exception {
+        return TestUtils.getLabeledInput(object, "");
     }
 }
