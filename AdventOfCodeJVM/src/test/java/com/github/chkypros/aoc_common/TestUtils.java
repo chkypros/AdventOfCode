@@ -32,7 +32,7 @@ public class TestUtils {
     }
 
     public static void checkAnswer(Object expectedAnswer, Object answer) {
-        assertNotNull(answer);
+        assertNotNull("Answer should not be null", answer);
         assertEquals(String.valueOf(expectedAnswer), String.valueOf(answer));
     }
 
