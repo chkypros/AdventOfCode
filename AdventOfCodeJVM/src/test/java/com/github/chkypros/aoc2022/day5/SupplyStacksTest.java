@@ -1,6 +1,7 @@
 package com.github.chkypros.aoc2022.day5;
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,18 +19,6 @@ public class SupplyStacksTest extends AbstractSolutionTest {
         solution = new SupplyStacks();
         expectedAnswerPartOneSample = "CMZ";
         expectedAnswerPartTwoSample = "MCD";
-    }
-
-    @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
     }
 
     @Test

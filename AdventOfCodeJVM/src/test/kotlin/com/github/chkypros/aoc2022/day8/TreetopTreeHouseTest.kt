@@ -1,7 +1,7 @@
 package com.github.chkypros.aoc2022.day8
 
-import com.github.chkypros.aoc_template.AbstractSolutionTest
 import com.github.chkypros.aoc_common.TestUtils.checkAnswer
+import com.github.chkypros.aoc_template.AbstractSolutionTest
 import org.junit.Before
 import org.junit.Test
 import java.util.stream.Stream
@@ -15,16 +15,6 @@ class TreetopTreeHouseTest : AbstractSolutionTest() {
         solution = TreetopTreeHouse()
         expectedAnswerPartOneSample = 21
         expectedAnswerPartTwoSample = 8
-    }
-
-    @Test
-    override fun solvePartOneSample() {
-        super.solvePartOneSample()
-    }
-
-    @Test
-    override fun solvePartTwoSample() {
-        super.solvePartTwoSample()
     }
 
     @Test

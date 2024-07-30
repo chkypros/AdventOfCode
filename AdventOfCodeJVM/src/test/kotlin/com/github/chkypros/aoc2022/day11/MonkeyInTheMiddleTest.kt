@@ -12,14 +12,4 @@ class MonkeyInTheMiddleTest: AbstractSolutionTest() {
         expectedAnswerPartOneSample = 10605
         expectedAnswerPartTwoSample = 2713310158
     }
-
-    @Test
-    override fun solvePartOneSample() {
-        super.solvePartOneSample()
-    }
-
-    @Test
-    override fun solvePartTwoSample() {
-        super.solvePartTwoSample()
-    }
 }

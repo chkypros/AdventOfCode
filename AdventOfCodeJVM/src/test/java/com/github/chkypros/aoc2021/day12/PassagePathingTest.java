@@ -27,29 +27,11 @@ public class PassagePathingTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartOne() throws Exception {
-        super.solvePartOne();
-    }
-
-    @Test
     public void solvePartTwoFirstExample() throws Exception {
         final Stream<String> stream = Files.lines(Utils.getInputFilePath(this, "-first-example"));
 
         final var answer = solution.solvePartTwo(stream);
 
         checkAnswer(36L, answer);
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
     }
 }

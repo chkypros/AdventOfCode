@@ -9,16 +9,4 @@ public class DumboOctopusTest extends AbstractSolutionTest {
         expectedAnswerPartOneSample = 1656L;
         expectedAnswerPartTwoSample = 195L;
     }
-
-    @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
-    }
 }

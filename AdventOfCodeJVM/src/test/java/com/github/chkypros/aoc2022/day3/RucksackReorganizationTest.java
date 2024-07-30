@@ -18,18 +18,6 @@ public class RucksackReorganizationTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
-    }
-
-    @Test
     public void partOne_findCommonType_twoItems() {
         final var answer = solution.solvePartOne(Stream.of("pp"));
         checkAnswer(16L, answer);

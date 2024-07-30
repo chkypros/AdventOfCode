@@ -16,16 +16,6 @@ class CathodeRayTubeTest: AbstractSolutionTest() {
     }
 
     @Test
-    override fun solvePartOneSample() {
-        super.solvePartOneSample()
-    }
-
-    @Test
-    override fun solvePartTwoSample() {
-        super.solvePartTwoSample()
-    }
-
-    @Test
     fun partOne_onlyNoop() {
         val answer = solution.solvePartOne(Stream.of("noop", "noop"))
         checkAnswer(0, answer)

@@ -8,10 +8,4 @@ public class TransparentOrigamiTest extends AbstractSolutionTest {
         solution = new TransparentOrigami();
         expectedAnswerPartOneSample = 17L;
     }
-
-    @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
 }

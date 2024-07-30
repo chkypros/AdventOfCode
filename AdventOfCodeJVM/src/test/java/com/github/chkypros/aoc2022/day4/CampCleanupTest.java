@@ -1,6 +1,7 @@
 package com.github.chkypros.aoc2022.day4;
 
 import com.github.chkypros.aoc_template.AbstractSolutionTest;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,18 +16,6 @@ public class CampCleanupTest extends AbstractSolutionTest {
         solution = new CampCleanup();
         expectedAnswerPartOneSample = 2L;
         expectedAnswerPartTwoSample = 4L;
-    }
-
-    @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
     }
 
     @Test

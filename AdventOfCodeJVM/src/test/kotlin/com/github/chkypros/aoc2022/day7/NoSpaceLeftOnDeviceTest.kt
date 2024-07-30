@@ -11,14 +11,4 @@ class NoSpaceLeftOnDeviceTest : AbstractSolutionTest() {
         expectedAnswerPartOneSample = 95437
         expectedAnswerPartTwoSample = 24933642
     }
-
-    @Test
-    override fun solvePartOneSample() {
-        super.solvePartOneSample()
-    }
-
-    @Test
-    override fun solvePartTwoSample() {
-        super.solvePartTwoSample()
-    }
 }

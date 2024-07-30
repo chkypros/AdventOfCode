@@ -18,18 +18,6 @@ public class CalorieCountingTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
     public void solveSingleItemInput() {
         String calories = "1000";
         final var answer = solution.solvePartOne(Stream.of(calories));

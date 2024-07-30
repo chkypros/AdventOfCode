@@ -33,18 +33,6 @@ public class PacketDecoderTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartOne() throws Exception {
-        super.solvePartOne();
-    }
-
-    @Test
     public void solvePartTwo_sumOperator_twoLiterals() {
         solvePartTwo(3L, Stream.of("C200B40A82"));
     }

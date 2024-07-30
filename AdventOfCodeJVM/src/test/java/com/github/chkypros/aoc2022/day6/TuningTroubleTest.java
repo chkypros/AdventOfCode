@@ -21,12 +21,6 @@ public class TuningTroubleTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
     public void partOne_allUnique() {
         var answer = solution.solvePartOne(Stream.of("abcd"));
         checkAnswer(4, answer);

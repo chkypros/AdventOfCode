@@ -11,7 +11,4 @@ class PyroclasticFlowTest: AbstractSolutionTest() {
         solution = PyroclasticFlow()
         expectedAnswerPartOneSample = 3068
     }
-
-    @Test
-    override fun solvePartOneSample() = super.solvePartOneSample()
 }

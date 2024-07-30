@@ -22,18 +22,6 @@ public class RockPaperScissorsTest extends AbstractSolutionTest {
     }
 
     @Test
-    @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartTwoSample() throws Exception {
-        super.solvePartTwoSample();
-    }
-
-    @Test
     public void singleRound_draw_scissors() {
         var answer = solution.solvePartOne(Stream.of("C Z"));
         checkAnswer(6L, answer);

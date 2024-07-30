@@ -15,18 +15,6 @@ public class ChitonTest extends AbstractSolutionTest {
 
     @Test
     @Override
-    public void solvePartOneSample() throws Exception {
-        super.solvePartOneSample();
-    }
-
-    @Test
-    @Override
-    public void solvePartOne() throws Exception {
-        super.solvePartOne();
-    }
-
-    @Test
-    @Override
     @Ignore("Long-running test")
     public void solvePartTwoSample() throws Exception {
         super.solvePartTwoSample();
