@@ -15,6 +15,7 @@
         <module>AdventOfCodeJVM</module>
         <module>AdventOfCodeElixir</module>
         <module>advent-of-code-rust</module>
+        <module>AdventOfCodePython</module>
     </modules>
 
     <properties>
