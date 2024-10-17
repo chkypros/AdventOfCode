@@ -1,0 +1,3 @@
+
+class AbstractSolution():
+    pass
