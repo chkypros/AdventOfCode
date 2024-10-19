@@ -2,4 +2,5 @@ import unittest
 
 class AbstractSolutionTest(unittest.TestCase):
     def test_part_one(self):
-        pass
+        if hasattr(self, 'EXPECTED_ANSWER_PART_ONE'):
+            assert self.EXPECTED_ANSWER_PART_ONE == -1
