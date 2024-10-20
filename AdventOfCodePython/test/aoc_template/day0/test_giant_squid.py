@@ -1,4 +1,4 @@
-import AdventOfCodePython.test.aoc_template.solution_test as solution_test
+import test.aoc_template.solution_test as solution_test
 
 from src.aoc_template.day0.giant_squid import GiantSquid 
 

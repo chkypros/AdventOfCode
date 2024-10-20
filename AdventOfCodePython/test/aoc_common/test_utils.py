@@ -1,10 +1,13 @@
 import os
+from pathlib import Path
+
 
 def get_input(reference: object) -> str:
-    return get_input_path(reference)
+    return get_input_path(reference).read_text()
 
-def get_input_path(reference: object, label: str = "") -> str:
+def get_input_path(reference: object, label: str = "") -> Path:
     module = reference.__module__
-    path_items = module.split(".")[1:-1]
-    path_items.append(f"aoc-{path_items[-1]}{label}-input.txt")
-    return os.path.join(*path_items)
+    sub_path = module.split(".")[1:-1]
+    sub_path.append(f"aoc-{sub_path[-1]}{label}-input.txt")
+
+    return Path(__file__).parents[3].joinpath('inputs', *sub_path)
