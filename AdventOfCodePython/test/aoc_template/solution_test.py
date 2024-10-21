@@ -9,5 +9,5 @@ class AbstractSolutionTest(unittest.TestCase):
 
     def test_part_one(self):
         if hasattr(self, 'EXPECTED_ANSWER_PART_ONE'):
-            input_content = test_utils.get_input(self)
-            self.assertEqual(self.EXPECTED_ANSWER_PART_ONE, self.solution.solve_part_one(input_content))
+            input_lines = test_utils.get_input_lines(self)
+            self.assertEqual(self.EXPECTED_ANSWER_PART_ONE, self.solution.solve_part_one(input_lines))

@@ -1,8 +1,9 @@
 from pathlib import Path
 
 
-def get_input(reference: object) -> str:
-    return get_input_path(reference).read_text()
+def get_input_lines(reference: object) -> [str]:
+    path = get_input_path(reference)
+    with open(path) as file: return file.read().splitlines()
 
 def get_input_path(reference: object, label: str = "") -> Path:
     module = reference.__module__
