@@ -1,10 +1,8 @@
-import unittest
+import test.aoc_template.solution_test as solution_test
 
+from src.aoc_template.day0.giant_squid import GiantSquid 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
-
-
-if __name__ == '__main__':
-    unittest.main()
+class GiantSquidTest(solution_test.AbstractSolutionTest):
+    EXPECTED_ANSWER_PART_ONE = "4512"
+    EXPECTED_ANSWER_PART_TWO = "1924"
+    solution = GiantSquid()
