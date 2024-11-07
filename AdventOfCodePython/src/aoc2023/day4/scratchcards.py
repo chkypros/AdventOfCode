@@ -21,3 +21,18 @@ class Scratchcards(solution.AbstractSolution):
         winning_numbers_counts = [len(_get_winning_numbers(card_info)) for card_info in card_info_list]
         points = sum([2 ** (count - 1) for count in winning_numbers_counts if count > 0])
         return str(points)
+
+    def solve_part_two(self, input_lines: list[str]) -> str:
+        card_info_list = [(1, _parse_card_info(input_line)) for input_line in input_lines]
+
+        scratchcards = 0
+        for i in range(len(card_info_list)):
+            card_info = card_info_list[i]
+            winning_numbers_count = len(_get_winning_numbers(card_info[1]))
+            scratchcards += card_info[0]
+            print(scratchcards)
+
+            for j in range(i + 1, i + 1 + winning_numbers_count):
+                card_info_list[j] = (card_info_list[j][0] + card_info[0], card_info_list[j][1])
+
+        return str(scratchcards)
