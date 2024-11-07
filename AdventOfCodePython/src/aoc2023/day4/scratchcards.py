@@ -16,7 +16,8 @@ def _get_winning_numbers(card_info: tuple[str, list[str], list[str]]) -> list[st
 
 class Scratchcards(solution.AbstractSolution):
     def solve_part_one(self, input_lines: list[str]) -> str:
-        card_info = [_parse_card_info(input_line) for input_line in input_lines]
-        [len(card_info) for card_info in card_info]
+        card_info_list = [_parse_card_info(input_line) for input_line in input_lines]
 
-        return card_info[0]
+        winning_numbers_counts = [len(_get_winning_numbers(card_info)) for card_info in card_info_list]
+        points = sum([2 ** (count - 1) for count in winning_numbers_counts if count > 0])
+        return str(points)
