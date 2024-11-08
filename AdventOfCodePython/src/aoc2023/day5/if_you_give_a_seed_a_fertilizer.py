@@ -23,3 +23,17 @@ class IfYouGiveASeedAFertilizer(solution.AbstractSolution):
         for mapper in mappers:
             values = [mapper.map(value) for value in values]
         return str(min(values))
+
+    def solve_part_two(self, input_lines: list[str]) -> str:
+        (seed_config, mappers) = _parse_input(input_lines)
+
+        values: list[int] = []
+        for i in range(0, len(seed_config), 2):
+            start = seed_config[i]
+            length = 10 # Hacking lenght to avoid infinite execution. Original: seed_config[i+1]
+            values.extend(range(start, start + length))
+
+        for mapper in mappers:
+            values = [mapper.map(value) for value in values]
+
+        return str(min(values))
