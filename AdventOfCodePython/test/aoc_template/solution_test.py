@@ -1,3 +1,4 @@
+import time
 import unittest
 
 import test.aoc_common.test_utils as test_utils
@@ -21,7 +22,11 @@ class AbstractSolutionTest(unittest.TestCase):
 
     def _run_test(self, method, attribute, label = ""):
         if hasattr(self, attribute):
+            start_time = time.time()
             input_lines = test_utils.get_input_lines(self, label)
-            self.assertEqual(self.__getattribute__(attribute), method(input_lines))
+            result = method(input_lines)
+            duration = time.time() - start_time
+            print(f"Executed [{method.__qualname__}] with input label [{label}] in [{duration} seconds]")
+            self.assertEqual(self.__getattribute__(attribute), result)
         else:
             self.skipTest("Not implemented yet")
