@@ -41,13 +41,12 @@ def _part_two_get_game_power(game: tuple[int, list[tuple[int, int, int]]]) -> in
     return reduce(lambda a,b: a * b, min_set)
 
 class CodeConundrum(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         game_lines = map(_parse_line, input_lines)
         filtered_game_lines = filter(_part_one_filter_line, game_lines)
-        game_id_sum = reduce(lambda sum, element: sum + element[0], filtered_game_lines, 0)
-        return str(game_id_sum)
+        return reduce(lambda sum, element: sum + element[0], filtered_game_lines, 0)
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         game_lines = map(_parse_line, input_lines)
         game_powers = map(_part_two_get_game_power, game_lines)
-        return str(sum(game_powers))
+        return sum(game_powers)

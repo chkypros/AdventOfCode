@@ -38,14 +38,12 @@ def _find_win_range(time: int, distance: int):
 
 
 class WaitForIt(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         race_infos = _parse_race_info(input_lines)
         win_range_infos = [_find_win_range(*race_info) for race_info in race_infos]
-        result = reduce(lambda acc, range: acc * (range[1] + 1 - range[0]), win_range_infos, 1)
-        return str(result)
+        return reduce(lambda acc, range: acc * (range[1] + 1 - range[0]), win_range_infos, 1)
 
     def solve_part_two(self, input_lines: list[str]) -> str:
         race_infos = _parse_race_info_part_two(input_lines)
         win_range_infos = [_find_win_range(*race_info) for race_info in race_infos]
-        result = reduce(lambda acc, range: acc * (range[1] + 1 - range[0]), win_range_infos, 1)
-        return str(result)
+        return reduce(lambda acc, range: acc * (range[1] + 1 - range[0]), win_range_infos, 1)

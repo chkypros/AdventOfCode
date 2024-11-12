@@ -26,7 +26,7 @@ class AbstractSolutionTest(unittest.TestCase):
             input_lines = test_utils.get_input_lines(self, label)
             result = method(input_lines)
             duration = time.time() - start_time
-            self.assertEqual(self.__getattribute__(attribute), result)
+            self.assertEqual(self.__getattribute__(attribute), str(result))
             print(f"Executed [{method.__qualname__}] with input label [{label}] in [{duration} seconds]")
         else:
             self.skipTest("Not implemented yet")

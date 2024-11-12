@@ -5,9 +5,9 @@ import src.aoc_template.solution as solution
 VALID_DIGIT_WORDS = "one|two|three|four|five|six|seven|eight|nine"
 
 
-def _solve(input_lines: list[str], get_calibration_value) -> str:
+def _solve(input_lines: list[str], get_calibration_value) -> object:
     calibration_values = map(lambda line : get_calibration_value(line), input_lines)
-    return str(sum(calibration_values))
+    return sum(calibration_values)
 
 
 def _get_digit(text):
@@ -28,8 +28,8 @@ def _get_calibration_value_p2(line: str) -> int:
     return int(digit1 + digit2)
 
 class Trebuchet(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         return _solve(input_lines, _get_calibration_value_p1)
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         return _solve(input_lines, _get_calibration_value_p2)

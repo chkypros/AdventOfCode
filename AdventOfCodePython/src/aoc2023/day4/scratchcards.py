@@ -15,14 +15,13 @@ def _get_winning_numbers(card_info: tuple[str, list[str], list[str]]) -> list[st
     return [number for number in card_info[1] if number in card_info[2]]
 
 class Scratchcards(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         card_info_list = [_parse_card_info(input_line) for input_line in input_lines]
 
         winning_numbers_counts = [len(_get_winning_numbers(card_info)) for card_info in card_info_list]
-        points = sum([2 ** (count - 1) for count in winning_numbers_counts if count > 0])
-        return str(points)
+        return sum([2 ** (count - 1) for count in winning_numbers_counts if count > 0])
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         card_info_list = [(1, _parse_card_info(input_line)) for input_line in input_lines]
 
         scratchcards = 0
@@ -30,9 +29,8 @@ class Scratchcards(solution.AbstractSolution):
             card_info = card_info_list[i]
             winning_numbers_count = len(_get_winning_numbers(card_info[1]))
             scratchcards += card_info[0]
-            print(scratchcards)
 
             for j in range(i + 1, i + 1 + winning_numbers_count):
                 card_info_list[j] = (card_info_list[j][0] + card_info[0], card_info_list[j][1])
 
-        return str(scratchcards)
+        return scratchcards

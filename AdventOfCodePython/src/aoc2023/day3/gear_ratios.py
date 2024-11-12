@@ -102,10 +102,10 @@ def _find_symbol(schematic: list[iter], row: int, column: int) -> tuple[str, int
     return None
 
 class GearRatios(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         numbers = _get_symbol_adjacent_numbers(input_lines)
-        return str(sum(numbers))
+        return sum(numbers)
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         gear_ratios = _get_gear_ratios(input_lines)
-        return str(sum(gear_ratios))
+        return sum(gear_ratios)

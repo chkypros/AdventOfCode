@@ -18,13 +18,13 @@ def _parse_input(input_lines: list[str]) -> tuple[list[int], list[Mapper]]:
     return (seeds, mappers)
 
 class IfYouGiveASeedAFertilizer(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         (values, mappers) = _parse_input(input_lines)
         for mapper in mappers:
             values = [mapper.map(value) for value in values]
-        return str(min(values))
+        return min(values)
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         (seed_config, mappers) = _parse_input(input_lines)
 
         values: list[int] = []
@@ -36,4 +36,4 @@ class IfYouGiveASeedAFertilizer(solution.AbstractSolution):
         for mapper in mappers:
             values = [mapper.map(value) for value in values]
 
-        return str(min(values))
+        return min(values)

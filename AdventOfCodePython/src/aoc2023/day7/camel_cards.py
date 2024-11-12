@@ -58,14 +58,12 @@ def _parse_input(input_line: str, j_override: int | None = None) -> tuple[HandTy
     return hand_type_value, card_values, bid
 
 class CamelCards(solution.AbstractSolution):
-    def solve_part_one(self, input_lines: list[str]) -> str:
+    def solve_part_one(self, input_lines: list[str]) -> object:
         hand_infos = [_parse_input(input_line) for input_line in input_lines]
         hand_infos.sort(key=lambda i: (i[0], i[1]))
-        total_winnings = sum([hand_infos[i][2] * (i + 1) for i in range(len(hand_infos))])
-        return str(total_winnings)
+        return sum([hand_infos[i][2] * (i + 1) for i in range(len(hand_infos))])
 
-    def solve_part_two(self, input_lines: list[str]) -> str:
+    def solve_part_two(self, input_lines: list[str]) -> object:
         hand_infos = [_parse_input(input_line, JOKER_VALUE) for input_line in input_lines]
         hand_infos.sort(key=lambda i: (i[0], i[1]))
-        total_winnings = sum([hand_infos[i][2] * (i + 1) for i in range(len(hand_infos))])
-        return str(total_winnings)
+        return sum([hand_infos[i][2] * (i + 1) for i in range(len(hand_infos))])
