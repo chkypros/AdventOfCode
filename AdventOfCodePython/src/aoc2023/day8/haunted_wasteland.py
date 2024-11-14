@@ -2,7 +2,7 @@ import re
 import src.aoc_template.solution as solution
 
 def _map_network_node(line: str) -> tuple[str , tuple[str, str]]:
-    result = re.search("([A-Z]{3}) = \\(([A-Z]{3}), ([A-Z]{3})\\)", line)
+    result = re.search("(\S{3}) = \\((\S{3}), (\S{3})\\)", line)
     if result is None: raise IOError
     return result.group(1), (result.group(2), result.group(3))
 
@@ -23,3 +23,6 @@ class HauntedWasteland(solution.AbstractSolution):
             if node == 'ZZZ': break
 
         return steps
+
+    def solve_part_two(self, input_lines: list[str]) -> object:
+        pass
