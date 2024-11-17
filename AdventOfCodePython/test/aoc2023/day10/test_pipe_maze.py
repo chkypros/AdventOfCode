@@ -2,7 +2,7 @@ import test.aoc_template.solution_test as solution_test
 
 from src.aoc2023.day10.pipe_maze import PipeMaze
 
-class MirageMaintenanceTest(solution_test.AbstractSolutionTest):
+class PipeMazeTest(solution_test.AbstractSolutionTest):
     EXPECTED_ANSWER_PART_ONE_SAMPLE = "8"
     EXPECTED_ANSWER_PART_ONE_SAMPLE_TWO = "8"
     solution = PipeMaze()
