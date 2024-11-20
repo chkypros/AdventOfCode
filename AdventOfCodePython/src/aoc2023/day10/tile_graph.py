@@ -1,32 +1,26 @@
 from abc import ABC
 
 class TileSide:
-    NORTH: "TileSide"
-    SOUTH: "TileSide"
-    WEST: "TileSide"
-    EAST: "TileSide"
 
     def __init__(self, next_node_offset: tuple[int, int]):
         self.next_node_offset = next_node_offset
         self.opposite: TileSide = None
-
-    @classmethod
-    def init_sides(cls):
-        cls.NORTH = TileSide((-1, 0))
-        cls.SOUTH = TileSide((1, 0))
-        cls.WEST = TileSide((0, -1))
-        cls.EAST = TileSide((0, 1))
-
-        cls.NORTH.opposite = cls.SOUTH
-        cls.SOUTH.opposite = cls.NORTH
-        cls.WEST.opposite = cls.EAST
-        cls.EAST.opposite = cls.WEST
 
     def get_next_node_offset(self) -> tuple[int, int]:
         return self.next_node_offset
 
     def get_opposite(self):
         return self.opposite
+
+NORTH = TileSide((-1, 0))
+SOUTH = TileSide((1, 0))
+WEST = TileSide((0, -1))
+EAST = TileSide((0, 1))
+
+NORTH.opposite = SOUTH
+SOUTH.opposite = NORTH
+WEST.opposite = EAST
+EAST.opposite = WEST
 
 class Tile(ABC):
 
@@ -47,7 +41,7 @@ class PipeTile(Tile):
 
     def get_other_connector(self, side):
         side_index = self.connectors.index(side)
-        return self.connectors[side_index + 1 % 2]
+        return self.connectors[(side_index + 1) % 2]
 
 class GroundTile(Tile):
     def __init__(self, position: tuple[int, int]):
