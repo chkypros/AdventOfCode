@@ -6,6 +6,7 @@ class PipeMazeTest(solution_test.AbstractSolutionTest):
     EXPECTED_ANSWER_PART_ONE_SAMPLE = "4"
     EXPECTED_ANSWER_PART_ONE_SAMPLE_TWO = "4"
     EXPECTED_ANSWER_PART_ONE_SAMPLE_THREE = "8"
+    EXPECTED_ANSWER_PART_ONE = "6927"
     solution = PipeMaze()
 
     def test_part_one_sample_two(self):

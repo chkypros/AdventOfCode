@@ -65,7 +65,6 @@ def _count_tiles_in_loop(graph: TileGraph) -> int:
     (current_tile, exiting_side) = _get_next_tile_in_loop(graph, starting_tile, starting_tile.connectors[0])
     while current_tile is not starting_tile:
         loop_length += 1
-        print(current_tile.get_position())
         (current_tile, exiting_side) = _get_next_tile_in_loop(graph, current_tile, exiting_side)
 
     return loop_length

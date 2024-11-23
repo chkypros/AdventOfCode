@@ -52,5 +52,7 @@ class StartingTile(Tile):
         super().__init__(position)
 
 class TileGraph:
-    starting_position: tuple[int, int] = None
-    tiles: list[list[Tile]] = []
+
+    def __init__(self):
+        self.starting_position: tuple[int, int] = None
+        self.tiles: list[list[Tile]] = []
