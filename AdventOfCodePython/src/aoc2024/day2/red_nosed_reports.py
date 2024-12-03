@@ -4,8 +4,8 @@ def _increasing_safe_step_filter(first: int, second: int): return first < second
 
 def _decreasing_safe_step_filter(first: int, second: int): return (first - 3) <= second < first
 
-def _report_is_safe(line: str) -> bool:
-    levels = list(map(int, line.split()))
+def _report_is_safe(report: str) -> bool:
+    levels = list(map(int, report.split()))
     if levels[0] < levels[1]:
         step_filter = _increasing_safe_step_filter
     else:
