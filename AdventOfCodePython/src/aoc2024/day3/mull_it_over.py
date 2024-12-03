@@ -10,3 +10,15 @@ class MullItOver(solution.AbstractSolution):
             for match in re.findall("mul\((\d+),(\d+)\)", input_lines[i])
         ]
         return sum(products)
+
+    def solve_part_two(self, input_lines: list[str]) -> object:
+        mul_sum = 0
+        do_mul = True
+        for line in input_lines:
+            for match in re.findall(r"(do|don't)\(\)|(mul)\((\d+),(\d+)\)", line):
+                match match:
+                    case [_, "mul", a, b]:
+                        if do_mul: mul_sum += int(a) * int(b)
+                    case ["do", _, _, _]: do_mul = True
+                    case ["don't", _, _, _]: do_mul = False
+        return mul_sum
