@@ -21,8 +21,8 @@ def _xmas_found(row: int, column: int, input_lines: list[str], step: tuple[int, 
 def _count_xmas_starting_from(row: int, column: int, input_lines: list[str]) -> int:
     return len([
         1
-        for row_step in range(-1, 1)
-        for column_step in range(-1, 1)
+        for row_step in range(-1, 2)
+        for column_step in range(-1, 2)
         if not (row_step == 0 and column_step == 0)
         if _xmas_found(row, column, input_lines, (row_step, column_step))
     ])
