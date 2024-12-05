@@ -4,4 +4,5 @@ from src.aoc2024.day5.print_queue import PrintQueue
 
 class CeresSearchTest(solution_test.AbstractSolutionTest):
     EXPECTED_ANSWER_PART_ONE_SAMPLE = "143"
+    EXPECTED_ANSWER_PART_ONE = "5713"
     solution = PrintQueue()
