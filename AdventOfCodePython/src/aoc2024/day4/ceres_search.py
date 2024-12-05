@@ -1,6 +1,7 @@
 import src.aoc_template.solution as solution
 
 XMAS_LETTERS = ['X', 'M', 'A', 'S']
+X_MAS_SURROUNDING_LETTERS = {'M', 'S'}
 
 def _is_expected_letter(letter: str, input_lines: list[str], position: tuple[int, int]) -> bool:
     if not (0 <= position[0] < len(input_lines)) or not (0 <= position[1] < len(input_lines[0])):
@@ -27,6 +28,12 @@ def _count_xmas_starting_from(row: int, column: int, input_lines: list[str]) -> 
         if _xmas_found(row, column, input_lines, (row_step, column_step))
     ])
 
+def _has_x_mas_at(row: int, column: int, input_lines: list[str]) -> bool:
+    return 'A' == input_lines[row][column] \
+            and 0 < row < len(input_lines) - 1 and 0 < column < len(input_lines[0]) - 1 \
+            and X_MAS_SURROUNDING_LETTERS == {input_lines[row - 1][column - 1], input_lines[row + 1][column + 1]} \
+            and X_MAS_SURROUNDING_LETTERS == {input_lines[row + 1][column - 1], input_lines[row - 1][column + 1]}
+
 class CeresSearch(solution.AbstractSolution):
     def solve_part_one(self, input_lines: list[str]) -> object:
         xmas_counts = [
@@ -36,3 +43,11 @@ class CeresSearch(solution.AbstractSolution):
         ]
 
         return sum(xmas_counts)
+
+    def solve_part_two(self, input_lines: list[str]) -> object:
+        return len([
+            1
+            for i in range(len(input_lines))
+            for j in range(len(input_lines[0]))
+            if _has_x_mas_at(i, j, input_lines)
+        ])
